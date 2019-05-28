@@ -1,0 +1,817 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>dgram 数据报 · NodeJS中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tony">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../source/css/website.css">
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../assert/" />
+    
+    
+    <link rel="prev" href="../dns/" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]};
+    </script>
+
+    
+        <link rel="shortcut icon" href='../../source/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../../source/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../../source/images/favicon.ico'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../../source/images/favicon.ico">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../../source/images/favicon.ico">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../synopsis/">
+            
+                <a href="../synopsis/">
+            
+                    
+                    Synopsis 总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../standard_modules/">
+            
+                <a href="../standard_modules/">
+            
+                    
+                    Standard Modules 标准模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../buffers/">
+            
+                <a href="../buffers/">
+            
+                    
+                    Buffers 缓存对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../eventemitter/">
+            
+                <a href="../eventemitter/">
+            
+                    
+                    EventEmitter事件触发器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../streams/">
+            
+                <a href="../streams/">
+            
+                    
+                    Streams 流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../global_objects/">
+            
+                <a href="../global_objects/">
+            
+                    
+                    Global Objects 全局对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../process/">
+            
+                <a href="../process/">
+            
+                    
+                    process 进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../sys/">
+            
+                <a href="../sys/">
+            
+                    
+                    通过sys访问模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../timers/">
+            
+                <a href="../timers/">
+            
+                    
+                    Timers 计时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../script/">
+            
+                <a href="../script/">
+            
+                    
+                    Script 脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../fs/">
+            
+                <a href="../fs/">
+            
+                    
+                    fs对文件的操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../http/">
+            
+                <a href="../http/">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../httpserver/">
+            
+                <a href="../httpserver/">
+            
+                    
+                    http.Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../httpserverrequest/">
+            
+                <a href="../httpserverrequest/">
+            
+                    
+                    http.ServerRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../httpserverresponse/">
+            
+                <a href="../httpserverresponse/">
+            
+                    
+                    http.ServerResponse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../httpclient/">
+            
+                <a href="../httpclient/">
+            
+                    
+                    http.Client
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../httpclientrequest/">
+            
+                <a href="../httpclientrequest/">
+            
+                    
+                    http.ClientRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../httpclientresponse/">
+            
+                <a href="../httpclientresponse/">
+            
+                    
+                    http.ClientResponse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../netserver_tcp/">
+            
+                <a href="../netserver_tcp/">
+            
+                    
+                    net.Server TCP服务器模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../netstream_tcp/">
+            
+                <a href="../netstream_tcp/">
+            
+                    
+                    net.Stream TCP流模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../crypto/">
+            
+                <a href="../crypto/">
+            
+                    
+                    Crypto 加密模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../dns/">
+            
+                <a href="../dns/">
+            
+                    
+                    DNS 域名解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.24" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    dgram 数据报
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../assert/">
+            
+                <a href="../assert/">
+            
+                    
+                    Assert 断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="../path/">
+            
+                <a href="../path/">
+            
+                    
+                    Path模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="../url/">
+            
+                <a href="../url/">
+            
+                    
+                    URL模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="../query_string/">
+            
+                <a href="../query_string/">
+            
+                    
+                    Query String 查询字串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" data-path="../repl/">
+            
+                <a href="../repl/">
+            
+                    
+                    REPL 交互执行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" data-path="../modules/">
+            
+                <a href="../modules/">
+            
+                    
+                    Modules 模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" data-path="../addons/">
+            
+                <a href="../addons/">
+            
+                    
+                    Addons 扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.32" data-path="../appendix_-_third_party_modules/">
+            
+                <a href="../appendix_-_third_party_modules/">
+            
+                    
+                    Appendix - Third Party Modules 附录：第三方模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >dgram 数据报</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="dgram-&#x6570;&#x636E;&#x62A5;">dgram &#x6570;&#x636E;&#x62A5;</h1>
+<p>&#x8981;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x5305;SOCKET &#x9700;&#x8981;&#x8C03;&#x7528;require(&apos;dgram&apos;),&#x6570;&#x636E;&#x62A5;&#x4E00;&#x822C;&#x7528;&#x6765;&#x5904;&#x7406;IP/UDP &#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x6570;&#x636E;&#x62A5;&#x4E5F;&#x53EF;&#x7528;&#x5728;UNIX
+DOMAIN SOCKETS &#x4E0A;</p>
+<p><strong>Event: &apos;message&apos;</strong>
+<strong>function (msg, rinfo) { }</strong>
+Emitted when a new datagram is available on a socket. msg is a Buffer and rinfo is an object with the sender&apos;s address
+information and the number of bytes in the datagram.</p>
+<p>&#x5F53;&#x4E00;&#x4E2A;SOCKET &#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x636E;&#x5305;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#xFF0C; msg &#x662F;&#x7F13;&#x51B2;&#x533A;&#x53D8;&#x91CF;,rinfo &#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E86;&#x53D1;&#x9001;&#x8005;&#x5730;&#x5740;
+&#x4FE1;&#x606F;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x62A5;&#x5B57;&#x8282;&#x957F;&#x5EA6;&#x7684;&#x5BF9;&#x8C61;.</p>
+<p><strong>Event: &apos;listening&apos;</strong></p>
+<pre><code>function () { }
+</code></pre><p>&#x5F53;&#x4E00;&#x4E2A;SOCKET &#x5F00;&#x59CB;&#x76D1;&#x542C;&#x6570;&#x636E;&#x62A5;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;,&#x5F53;UDP SOCKET &#x5EFA;&#x7ACB;&#x540E;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;&#x800C;UNIX DOMAIN
+SOCKET &#x76F4;&#x5230;&#x5728;SOCKET &#x4E0A;&#x8C03;&#x7528;&#x4E86;bind()&#x65B9;&#x6CD5;&#x624D;&#x4F1A;&#x89E6;&#x53D1;&#x8FD9;&#x4E2A;&#x6D88;&#x606F;.</p>
+<p><strong>Event: &apos;close&apos;</strong></p>
+<pre><code>function () { }
+</code></pre><p>&#x5F53;&#x4E00;&#x4E2A;SOCKET &#x4F7F;&#x7528;close()&#x65B9;&#x6CD5;&#x5173;&#x95ED;&#x65F6;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;.&#x5728;&#x6B64;&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#x6B64;SOCKET &#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x6D88;&#x606F;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;.</p>
+<p><strong>dgram.createSocket(type, [callback])</strong></p>
+<p>&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x62A5;SOCKET,&#x6709;&#x6548;&#x7C7B;&#x578B;&#x6709;:udp4,udp6,unix_dgram
+callback &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x9879;&#xFF0C;&#x53EF;&#x4F5C;&#x4E3A;message &#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x88AB;&#x52A0;&#x5165;&#x3002;</p>
+<p><strong>dgram.send(buf, offset, length, path, [callback])</strong></p>
+<p>&#x5BF9;&#x4E8E;unix domain datagram xockets &#x6765;&#x8BF4;,&#x4ED6;&#x7684;&#x76EE;&#x6807;&#x5730;&#x5740;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x8868;&#x793A;&#x7684;&#x8DEF;&#x5F84;&#x540D;,callback &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53EF;&#x9009;
+&#x9879;&#x4F1A;&#x5728;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;sendto &#x5B8C;&#x6BD5;&#x540E;&#x88AB;&#x89E6;&#x53D1;&#x3002;&#x9664;&#x975E;callback &#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x5426;&#x5219;&#x91CD;&#x590D;&#x4F7F;&#x7528;buf &#x662F;&#x5F88;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;&#x8981;&#x6CE8;&#x610F;&#x9664;&#x975E;&#x8FD9;
+&#x4E2A;socket &#x5DF2;&#x7ECF;&#x4F7F;&#x7528;bind()&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x540D;&#x4E0A;&#xFF0C;&#x5426;&#x5219;&#x8FD9;&#x4E2A;SOCKET &#x65E0;&#x6CD5;&#x63A5;&#x6536;&#x5230;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x901A;&#x8FC7;unix domain socket /var/run/syslog &#x53D1;&#x9001;&#x6D88;&#x606F;&#x5230;syslogd &#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>var dgram = require(&apos;dgram&apos;),
+message = new Buffer(&quot;A message to log.&quot;);
+client = dgram.createSocket(&quot;unix_dgram&quot;);
+client.send(message, 0, message.length, &quot;/var/run/syslog&quot;,
+function (err, bytes) {
+if (err) {
+throw err;
+}
+console.log(&quot;Wrote &quot; + bytes + &quot; bytes to socket.&quot;);
+});
+</code></pre><p>&#x4ECE;MESSAGE &#x4E2D;&#x504F;&#x79FB;&#x4E3A;0&#x7684;&#x5730;&#x65B9;&#x5F00;&#x59CB;&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;MESSAGE.LENGTH &#x7684;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x901A;&#x8FC7;/var/run/syslog &#x53D1;&#x9001;&#x7CFB;&#x7EDF;&#x8C03;
+&#x7528;&#x53D1;&#x9001;&#x540E;&#xFF0C;&#x5C06;&#x8C03;&#x7528;CALLBACK&#xFF0C;&#x5982;&#x679C;&#x6709;&#x9519;&#x8BEF;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x5426;&#x5219;console.log &#x5B9E;&#x9645;&#x53D1;&#x9001;&#x4E86;&#x591A;&#x5C11;&#x4E2A;&#x5B57;&#x8282;&#x3002;</p>
+<p><strong>dgram.send(buf, offset, length, port, address, [callback])</strong></p>
+<p>&#x5BF9;&#x4E8E;UDPSOCKETS &#x6765;&#x8BF4;&#xFF0C;&#x76EE;&#x6807;&#x7AEF;&#x53E3;&#x548C;IP &#x5730;&#x5740;&#x662F;&#x5FC5;&#x987B;&#x8981;&#x6307;&#x5B9A;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x6765;&#x6307;&#x5B9A;&#x5730;&#x5740;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;
+&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;DNS &#x89E3;&#x6790;&#x7684;&#xFF0C;CALLBACK &#x4F5C;&#x4E3A;&#x53EF;&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x5230;&#x4EFB;&#x4F55;DNS &#x9519;&#x8BEF;&#x548C;&#x662F;&#x5426;BUF &#x91CD;&#x590D;&#x4F7F;&#x7528;&#x4E86;.&#x8BF7;&#x8BB0;&#x4F4F;
+DNS &#x641C;&#x7D22;&#x5C06;&#x4F1A;&#x4F7F;SEND &#x52A8;&#x4F5C;&#x6700;&#x5C11;&#x5EF6;&#x8FDF;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x7247;&#x53D1;&#x751F;&#xFF0C; &#xFF0C;&#x552F;&#x4E00;&#x80FD;&#x786E;&#x5B9A;&#x5DF2;&#x7ECF;SEND &#x5F97;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;
+CALLBACK</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x53D1;&#x9001;UDP &#x6570;&#x636E;&#x5305;&#x5230;&#x672C;&#x673A;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7AEF;&#x53E3;&#x7684;&#x4F8B;&#x5B50;</p>
+<pre><code>var dgram = require(&apos;dgram&apos;),
+message = new Buffer(&quot;Some bytes&quot;);
+client = dgram.createSocket(&quot;udp4&quot;);
+client.send(message, 0, message.length, 41234, &quot;localhost&quot;);
+client.close();
+</code></pre><p><strong>dgram.bind(path)</strong></p>
+<p>&#x53EA;&#x6709;&#x5728;Unxi DOMAIN DATAGRAM SOCKET &#x4E2D;&#x4F7F;&#x7528;,&#x5F00;&#x59CB;&#x5728;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x8DEF;&#x5F84;&#x4E0A;&#x76D1;&#x542C;&#x4E00;&#x4E2A;SOCKET &#x8FC7;&#x6765;&#x7684;&#x7684;&#x6570;&#x636E;
+&#x62A5;&#x3002;&#x8981;&#x8BB0;&#x5F97;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x4E0D;&#x662F;&#x7528;BIND()&#x65B9;&#x6CD5;&#x800C;&#x76F4;&#x63A5;&#x8C03;&#x7528;SEND()&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x4F7F;&#x7528;BIND()&#x65B9;&#x6CD5;&#x662F;&#x65E0;&#x6CD5;&#x63A5;&#x6536;&#x5230;&#x4EFB;
+&#x4F55;&#x4FE1;&#x606F;&#x7684;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;UNIX DOMAIN &#x6570;&#x636E;&#x5305;&#x670D;&#x52A1;&#x5668;&#x6765;&#x505A;&#x63A5;&#x53D7;&#x4FE1;&#x606F;&#x56DE;&#x663E;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>var dgram = require(&quot;dgram&quot;);
+var serverPath = &quot;/tmp/dgram_server_sock&quot;;
+var server = dgram.createSocket(&quot;unix_dgram&quot;);
+server.on(&quot;message&quot;, function (msg, rinfo) {
+console.log(&quot;got: &quot; + msg + &quot; from &quot; + rinfo.address);
+server.send(msg, 0, msg.length, rinfo.address);
+});
+server.on(&quot;listening&quot;, function () {
+console.log(&quot;server listening &quot; + server.address().address);
+})
+server.bind(serverPath);
+</code></pre><p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;UNIX DOMAIN DATAGRAM &#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x4EA4;&#x4E92;&#x7684;&#x4F8B;&#x5B50;</p>
+<pre><code>var dgram = require(&quot;dgram&quot;);
+var serverPath = &quot;/tmp/dgram_server_sock&quot;;
+var clientPath = &quot;/tmp/dgram_client_sock&quot;;
+var message = new Buffer(&quot;A message at &quot; + (new Date()));
+var client = dgram.createSocket(&quot;unix_dgram&quot;);
+client.on(&quot;message&quot;, function (msg, rinfo) {
+console.log(&quot;got: &quot; + msg + &quot; from &quot; + rinfo.address);
+});
+client.on(&quot;listening&quot;, function () {
+console.log(&quot;client listening &quot; + client.address().address);
+client.send(message, 0, message.length, serverPath);
+});
+client.bind(clientPath);
+</code></pre><p>dgram.bind(port, [address])</p>
+<p>&#x5BF9;&#x4E8E;UDP SOCKETS&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x5728;&#x6307;&#x5B9A;&#x7AEF;&#x53E3;&#x548C;&#x53EF;&#x9009;&#x5730;&#x5740;&#x4E0A;&#x76D1;&#x542C;&#xFF0C;&#x5982;&#x679C;&#x5730;&#x5740;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x76D1;&#x542C;&#x6240;&#x6709;
+&#x6709;&#x6548;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5728;41234&#x7AEF;&#x53E3;&#x7684;UDP &#x670D;&#x52A1;&#x5668;&#x7684;&#x4F8B;&#x5B50;</p>
+<pre><code>var dgram = require(&quot;dgram&quot;);
+var server = dgram.createSocket(&quot;udp4&quot;);
+var messageToSend = new Buffer(&quot;A message to send&quot;);
+server.on(&quot;message&quot;, function (msg, rinfo) {
+console.log(&quot;server got: &quot; + msg + &quot; from &quot; +
+rinfo.address + &quot;:&quot; + rinfo.port);
+});
+server.on(&quot;listening&quot;, function () {
+var address = server.address();
+console.log(&quot;server listening &quot; +
+address.address + &quot;:&quot; + address.port);
+});
+server.bind(41234);
+// server listening 0.0.0.0:41234
+</code></pre><p><strong>dgram.close()</strong></p>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5173;&#x95ED;&#x975E;&#x5EF6;&#x8FDF;&#x7684;SOCKET &#x5E76;&#x4E14;&#x505C;&#x6B62;&#x5728;&#x5176;&#x4E0A;&#x76D1;&#x542C;&#x6570;&#x636E;&#x3002;&#x5373;&#x4F7F;&#x6CA1;&#x6709;&#x8C03;&#x7528;BIND()&#x65B9;&#x6CD5;UDP SOCKET &#x4E5F;&#x4F1A;&#x81EA;&#x52A8;
+&#x76D1;&#x542C;&#x6D88;&#x606F;&#x3002;</p>
+<p><strong>dgram.address()</strong></p>
+<p>&#x8FD4;&#x56DE;&#x5305;&#x542B;SOCKET &#x5730;&#x5740;&#x4FE1;&#x606F;&#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x4E8E;UDP SOCKETS &#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5C06;&#x5305;&#x542B;&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#xFF0C;&#x5BF9;&#x4E8E;UNIX
+DOMAIN SOCKETS &#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4EC5;&#x5305;&#x542B;&#x5730;&#x5740;&#x3002;</p>
+<p><strong>dgram.setBroadcast(flag)</strong></p>
+<p>&#x8BBE;&#x7F6E;&#x6216;&#x8005;&#x6E05;&#x9664;SO_BROADCAST &#x9009;&#x9879;&#xFF0C;&#x5F53;&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#x8BBE;&#x7F6E;&#x540E;&#xFF0C;UDP &#x5305;&#x53EF;&#x4EE5;&#x53D1;&#x9001;&#x5230;&#x672C;&#x5730;&#x63A5;&#x53E3;&#x7684;&#x5E7F;&#x64AD;&#x5730;&#x5740;&#x3002;</p>
+<p><strong>dgram.setTTL(ttl)</strong></p>
+<p>&#x8BBE;&#x7F6E;IP_TTL &#x8FD9;&#x4E2A;&#x9009;&#x9879;&#xFF0C;TTL &#x8868;&#x793A;&#x201C;&#x5B58;&#x6D3B;&#x65F6;&#x95F4;&#x201D;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x4ED6;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;IP &#x7684;HOPS&#xFF08;&#x6BCF;&#x4E2A;&#x8282;
+&#x70B9;&#x5728;&#x8F6C;&#x53D1;&#x6570;&#x636E;&#x5305;&#x65F6;&#x7684;&#x6D88;&#x8017;&#x3002;&#x5982;&#x679C;Hop limit &#x6D88;&#x8017;&#x5230;0&#xFF0C;&#x5219;&#x53D6;&#x6D88;&#x6570;&#x636E;&#x5305;&#xFF09;&#x6765;&#x786E;&#x5B9A;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x5927;&#x81F4;&#x5141;&#x8BB8;&#x7ECF;&#x8FC7;&#x591A;&#x5C11;&#x8282;&#x70B9;&#x3002;
+&#x6BCF;&#x7ECF;&#x8FC7;&#x4E2A;&#x8DEF;&#x7531;&#x5668;&#x6216;&#x8005;&#x7F51;&#x5173;&#x90FD;&#x4F1A;&#x51CF;&#x5C11;TTL &#x6570;&#x503C;&#xFF0C;&#x5982;&#x679C;TTL &#x88AB;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x5668;&#x51CF;&#x5C11;&#x5230;0&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x62A5;&#x5C06;&#x4E0D;&#x4F1A;&#x7EE7;&#x7EED;&#x8F6C;&#x53D1;&#xFF0C;
+&#x4FEE;&#x6539;TTL &#x6570;&#x503C;&#x7ECF;&#x5E38;&#x7528;&#x6765;&#x5F53;&#x7F51;&#x7EDC;&#x63A2;&#x9488;&#x6216;&#x8005;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x591A;&#x64AD;&#x4F7F;&#x7528;
+ttl &#x7528;&#x6765;&#x8BBE;&#x7F6E;HOPS &#x7684;&#x6570;&#x503C;&#x4ECE;1&#x5230;255&#xFF0C;&#x5927;&#x591A;&#x6570;&#x7CFB;&#x7EDF;&#x7F3A;&#x7701;&#x4F1A;&#x8BBE;&#x7F6E;&#x4E3A;64</p>
+<footer class="page-footer"><span class="copyright">&#xA9; Tony all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-5-28 15:29:42
+</span></footer></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../dns/" class="navigation navigation-prev " aria-label="Previous page: DNS 域名解析">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../assert/" class="navigation navigation-next " aria-label="Next page: Assert 断言">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"dgram 数据报","level":"1.24","depth":1,"next":{"title":"Assert 断言","level":"1.25","depth":1,"path":"docs/assert/README.md","ref":"docs/assert/README.md","articles":[]},"previous":{"title":"DNS 域名解析","level":"1.23","depth":1,"path":"docs/dns/README.md","ref":"docs/dns/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/dgram/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

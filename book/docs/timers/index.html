@@ -1,0 +1,842 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Timers 计时器 · NodeJS中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="tony">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../source/css/website.css">
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../script/" />
+    
+    
+    <link rel="prev" href="../sys/" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]};
+    </script>
+
+    
+        <link rel="shortcut icon" href='../../source/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../../source/images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../../source/images/favicon.ico'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../../source/images/favicon.ico">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../../source/images/favicon.ico">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../synopsis/">
+            
+                <a href="../synopsis/">
+            
+                    
+                    Synopsis 总述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../standard_modules/">
+            
+                <a href="../standard_modules/">
+            
+                    
+                    Standard Modules 标准模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../buffers/">
+            
+                <a href="../buffers/">
+            
+                    
+                    Buffers 缓存对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../eventemitter/">
+            
+                <a href="../eventemitter/">
+            
+                    
+                    EventEmitter事件触发器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../streams/">
+            
+                <a href="../streams/">
+            
+                    
+                    Streams 流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../global_objects/">
+            
+                <a href="../global_objects/">
+            
+                    
+                    Global Objects 全局对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../process/">
+            
+                <a href="../process/">
+            
+                    
+                    process 进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../sys/">
+            
+                <a href="../sys/">
+            
+                    
+                    通过sys访问模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Timers 计时器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../script/">
+            
+                <a href="../script/">
+            
+                    
+                    Script 脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../fs/">
+            
+                <a href="../fs/">
+            
+                    
+                    fs对文件的操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../http/">
+            
+                <a href="../http/">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../httpserver/">
+            
+                <a href="../httpserver/">
+            
+                    
+                    http.Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../httpserverrequest/">
+            
+                <a href="../httpserverrequest/">
+            
+                    
+                    http.ServerRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../httpserverresponse/">
+            
+                <a href="../httpserverresponse/">
+            
+                    
+                    http.ServerResponse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../httpclient/">
+            
+                <a href="../httpclient/">
+            
+                    
+                    http.Client
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../httpclientrequest/">
+            
+                <a href="../httpclientrequest/">
+            
+                    
+                    http.ClientRequest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../httpclientresponse/">
+            
+                <a href="../httpclientresponse/">
+            
+                    
+                    http.ClientResponse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../netserver_tcp/">
+            
+                <a href="../netserver_tcp/">
+            
+                    
+                    net.Server TCP服务器模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../netstream_tcp/">
+            
+                <a href="../netstream_tcp/">
+            
+                    
+                    net.Stream TCP流模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../crypto/">
+            
+                <a href="../crypto/">
+            
+                    
+                    Crypto 加密模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../dns/">
+            
+                <a href="../dns/">
+            
+                    
+                    DNS 域名解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../dgram/">
+            
+                <a href="../dgram/">
+            
+                    
+                    dgram 数据报
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../assert/">
+            
+                <a href="../assert/">
+            
+                    
+                    Assert 断言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="../path/">
+            
+                <a href="../path/">
+            
+                    
+                    Path模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="../url/">
+            
+                <a href="../url/">
+            
+                    
+                    URL模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="../query_string/">
+            
+                <a href="../query_string/">
+            
+                    
+                    Query String 查询字串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" data-path="../repl/">
+            
+                <a href="../repl/">
+            
+                    
+                    REPL 交互执行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" data-path="../modules/">
+            
+                <a href="../modules/">
+            
+                    
+                    Modules 模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" data-path="../addons/">
+            
+                <a href="../addons/">
+            
+                    
+                    Addons 扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.32" data-path="../appendix_-_third_party_modules/">
+            
+                <a href="../appendix_-_third_party_modules/">
+            
+                    
+                    Appendix - Third Party Modules 附录：第三方模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Timers 计时器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="timers-&#x8BA1;&#x65F6;&#x5668;">Timers &#x8BA1;&#x65F6;&#x5668;</h1>
+<p><strong>setTimeout(callback, delay, [arg], [...])</strong></p>
+<p>&#x8BBE;&#x7F6E;&#x5EF6;&#x65F6;delay &#x6BEB;&#x79D2;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x56DE;&#x8C03;&#x51FD;&#x6570;(callback)&#x3002;&#x8BE5;&#x51FD;&#x6570;&#x8FD4;&#x56DE;timeoutId&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;clearTimeout()&#x6E05;&#x9664;&#x5B9A;&#x65F6;&#x3002;&#x4F60;
+&#x4E5F;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x989D;&#x5916;&#x7684;&#x53C2;&#x6570;&#x7ED9;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+<p><strong>clearTimeout(timeoutId)</strong></p>
+<p>&#x6E05;&#x9664;&#x6307;&#x5B9A;&#x7684;&#x5B9A;&#x65F6;&#x3002;</p>
+<p><strong>setInterval(callback, delay, [arg], [...])</strong></p>
+<p>&#x8BBE;&#x7F6E;&#x91CD;&#x590D;&#x5EF6;&#x65F6;&#x8C03;&#x7528;callback&#x3002;&#x8BE5;&#x51FD;&#x6570;&#x8FD4;&#x56DE;intervalId&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;clearTimeout()&#x6E05;&#x9664;&#x5B9A;&#x65F6;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x53EF;&#x9009;&#x7684;
+&#x53C2;&#x6570;&#x7ED9;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+<p>.end();
+<strong>clearInterval(intervalId)</strong></p>
+<p>&#x6E05;&#x695A;&#x6307;&#x5B9A;&#x7684;&#x91CD;&#x590D;&#x5EF6;&#x65F6;&#x56DE;&#x8C03;&#x3002;</p>
+<h3 id="child-processes-&#x5B50;&#x8FDB;&#x7A0B;">Child Processes &#x5B50;&#x8FDB;&#x7A0B;</h3>
+<p>node &#x901A;&#x8FC7;ChildProcess &#x7C7B;&#x63D0;&#x4F9B;&#x5168;&#x9762;&#x7684;popen(3)&#x529F;&#x80FD;&#x3002;
+&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x5165;(stdin)&#x3001;&#x6807;&#x51C6;&#x8F93;&#x51FA;(stdout)&#x3001;&#x6807;&#x51C6;&#x9519;&#x8BEF;&#x8F93;&#x51FA;(stderr)&#x4EE5;&#x5B8C;&#x5168;&#x975E;&#x963B;&#x585E;&#x7684;&#x5F62;&#x5F0F;&#x4F20;&#x9012;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;require(&apos;child_process&apos;).spawn()&#x521B;&#x5EFA;&#x5B50;&#x8FDB;&#x7A0B;&#x3002;
+&#x6BCF;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#x603B;&#x662F;&#x5E26;&#x6709;&#x4E09;&#x4E2A;&#x6D41;&#x5BF9;&#x8C61;&#xFF1A;child.stdin, child.stdout &#x548C;child.stderr&#x3002;
+&#x6BCF;&#x4E2A;ChildProcess &#x7C7B;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5668;&#x3002;</p>
+<p><strong>Event: &apos;exit&apos;</strong></p>
+<pre><code>function (code, signal) {}
+</code></pre><p>&#x6B64;&#x4E8B;&#x4EF6;&#x5728;&#x5B50;&#x8FDB;&#x7A0B;&#x7ED3;&#x675F;&#x540E;&#x88AB;&#x89E6;&#x53D1;&#x3002;&#x5982;&#x679C;&#x8FDB;&#x7A0B;&#x6B63;&#x5E38;&#x7ED3;&#x675F;&#xFF0C;code &#x53C2;&#x6570;&#x7684;&#x503C;&#x5C31;&#x662F;&#x5B50;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x540E;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x5426;&#x5219;&#x6B64;&#x53C2;&#x6570;&#x4E3A;
+null&#x3002;&#x5982;&#x679C;&#x8FDB;&#x7A0B;&#x56E0;&#x4E3A;&#x4FE1;&#x53F7;&#x800C;&#x7EC8;&#x6B62;&#xFF0C;&#x53C2;&#x6570;signal &#x5C31;&#x662F;&#x4FE1;&#x53F7;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5426;&#x5219;&#x6B64;&#x53C2;&#x6570;&#x4E3A;null&#x3002;
+&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#xFF0C;node &#x5C06;&#x4E0D;&#x518D;&#x89E6;&#x53D1;&apos;output&apos;&#x548C;&apos;error&apos;&#x4E8B;&#x4EF6;&#x3002;
+See waitpid(2).</p>
+<p><strong>child.stdin</strong></p>
+<p>&#x53EF;&#x5199;&#x6D41;(Writable Stream)&#xFF0C;&#x4EE3;&#x8868;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x5165;(stdin)&#x3002;&#x4F7F;&#x7528;end()&#x51FD;&#x6570;&#x5173;&#x95ED;&#x6B64;&#x6D41;(stream)&#xFF0C;&#x901A;&#x5E38;&#x4F1A;&#x7EC8;&#x6B62;&#x5B50;&#x8FDB;&#x7A0B;&#x3002;</p>
+<p><strong>child.stdout</strong></p>
+<p>&#x53EA;&#x8BFB;&#x6D41;(Readable Stream)&#xFF0C;&#x4EE3;&#x8868;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x51FA;(stdout)&#x3002;
+<strong>child.stderr</strong></p>
+<p>&#x53EA;&#x8BFB;&#x6D41;(Readable Stream)&#xFF0C;&#x4EE3;&#x8868;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6807;&#x51C6;&#x9519;&#x8BEF;&#x8F93;&#x51FA;(stderr)&#x3002;</p>
+<p><strong>child.pid</strong></p>
+<p>&#x5B50;&#x8FDB;&#x7A0B;&#x7684;PID
+Example:</p>
+<pre><code>var spawn = require(&apos;child_process&apos;).spawn,
+grep = spawn(&apos;grep&apos;, [&apos;ssh&apos;]);
+console.log(&apos;Spawned child pid: &apos; + grep.pid);
+grep.stdin.end();
+</code></pre><p><strong>child_process.spawn(command, args=[], [options])</strong></p>
+<p>&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x521B;&#x5EFA;&#x65B0;&#x7EBF;&#x7A0B;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#x53C2;&#x6570;&#xFF0C;args &#x9ED8;&#x8BA4;&#x4E3A;&#x7A7A;&#x6570;&#x7EC4;&#x3002;
+&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x4E00;&#x4E9B;&#x989D;&#x5916;&#x7684;&#x9009;&#x9879;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>{ cwd: undefined
+, env: process.env,
+, customFds: [-1, -1, -1]
+}
+</code></pre><p>cwd &#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x65B0;&#x8FDB;&#x7A0B;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;env &#x6307;&#x5B9A;&#x65B0;&#x8FDB;&#x7A0B;&#x53EF;&#x89C1;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x800C;customFds &#x5219;&#x53EF;&#x4EE5;&#x5C06;&#x65B0;&#x8FDB;&#x7A0B;&#x7684;
+[stdin,stdout,stderr]&#x7ED1;&#x5B9A;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x6D41;&#xFF0C;-1&#x6307;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x6D41;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;&#x6267;&#x884C;&#x547D;&#x4EE4;&apos;ls -lh /usr&apos;&#x5E76;&#x6355;&#x83B7;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x3001;&#x6807;&#x51C6;&#x9519;&#x8BEF;&#x8F93;&#x51FA;&#x548C;&#x9000;&#x51FA;&#x4EE3;&#x7801;&#xFF08;&#x7A0B;&#x5E8F;&#x9000;&#x51FA;&#x65F6;&#xFF0C;main &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x4EE3;&#x7801;&#xFF09;&#x3002;</p>
+<pre><code>var sys = require(&apos;sys&apos;),
+spawn = require(&apos;child_process&apos;).spawn,
+ls = spawn(&apos;ls&apos;, [&apos;-lh&apos;, &apos;/usr&apos;]);
+ls.stdout.on(&apos;data&apos;, function (data) {
+sys.print(&apos;stdout: &apos; + data);
+});
+ls.stderr.on(&apos;data&apos;, function (data) {
+sys.print(&apos;stderr: &apos; + data);
+});
+ls.on(&apos;exit&apos;, function (code) {
+console.log(&apos;child process exited with code &apos; + code);
+});
+</code></pre><p>&#x4F8B;&#x5B50;&#xFF1A; &#x5B9E;&#x73B0;&apos;ps ax | grep ssh&apos;&#x547D;&#x4EE4;&#x3002;</p>
+<pre><code>var sys = require(&apos;sys&apos;),
+spawn = require(&apos;child_process&apos;).spawn,
+ps = spawn(&apos;ps&apos;, [&apos;ax&apos;]),
+grep = spawn(&apos;grep&apos;, [&apos;ssh&apos;]);
+ps.stdout.on(&apos;data&apos;, function (data) {
+grep.stdin.write(data);
+});
+ps.stderr.on(&apos;data&apos;, function (data) {
+sys.print(&apos;ps stderr: &apos; + data);
+});
+ps.on(&apos;exit&apos;, function (code) {
+if (code !== 0) {
+console.log(&apos;ps process exited with code &apos; + code);
+}
+grep.stdin.end();
+});
+grep.stdout.on(&apos;data&apos;, function (data) {
+sys.print(data);
+});
+grep.stderr.on(&apos;data&apos;, function (data) {
+sys.print(&apos;grep stderr: &apos; + data);
+});
+grep.on(&apos;exit&apos;, function (code) {
+if (code !== 0) {
+console.log(&apos;grep process exited with code &apos; + code);
+}
+});
+</code></pre><p>&#x4F8B;&#x5B50;&#xFF0C;&#x68C0;&#x6D4B;&#x9000;&#x51FA;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code>var spawn = require(&apos;child_process&apos;).spawn,
+child = spawn(&apos;bad_command&apos;);
+child.stderr.on(&apos;data&apos;, function (data) {
+if (/^execvp\(\)/.test(data.asciiSlice(0,data.length))) {
+console.log(&apos;Failed to start child process.&apos;);
+}
+});
+</code></pre><p>&#x8BF7;&#x53C2;&#x89C1;&#xFF1A;child_process.exec()</p>
+<p><strong>child_process.exec(command, [options], callback)</strong></p>
+<p>&#x4F7F;&#x7528;&#x5B50;&#x8FDB;&#x7A0B;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF0C;&#x7F13;&#x5B58;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x5E76;&#x5C06;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x8F93;&#x51FA;&#x4EE5;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x3002;</p>
+<pre><code>var sys = require(&apos;sys&apos;),
+exec = require(&apos;child_process&apos;).exec,
+child;
+child = exec(&apos;cat *.js bad_file | wc -l&apos;,
+function (error, stdout, stderr) {
+sys.print(&apos;stdout: &apos; + stdout);
+sys.print(&apos;stderr: &apos; + stderr);
+if (error !== null) {
+console.log(&apos;exec error: &apos; + error);
+}
+});
+</code></pre><p>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5F97;&#x5230;&#x7684;&#x53C2;&#x6570;&#x5206;&#x522B;&#x4E3A;(error, stdout, stderr)&#x3002;&#x6210;&#x529F;&#x65F6;error &#x53C2;&#x6570;&#x662F;null&#xFF1B;&#x5931;&#x8D25;&#x65F6;error &#x53C2;&#x6570;&#x662F;Error &#x7684;&#x5B9E;&#x4F8B;&#x3002;
+error.code &#x662F;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;error.signal &#x4FDD;&#x5B58;&#x7EC8;&#x6B62;&#x8FDB;&#x7A0B;&#x7684;&#x4FE1;&#x53F7;&#x3002;
+exec &#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x4E00;&#x4E9B;&#x9009;&#x9879;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;</p>
+<pre><code>{ encoding: &apos;utf8&apos;
+, timeout: 0
+, maxBuffer: 200*1024
+, killSignal: &apos;SIGKILL&apos;
+, cwd: null
+, env: null
+}
+</code></pre><p>&#x5982;&#x679C;timeout &#x4E3A;&#x5927;&#x4E8E;0&#x7684;&#x503C;&#xFF0C;node &#x5C06;&#x7EC8;&#x6B62;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;timeout&#xFF08;&#x5355;&#x4F4D;&#x4E3A;&#x6BEB;&#x79D2;&#xFF09;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x3002;&#x5B50;&#x8FDB;&#x7A0B;&#x5C06;&#x88AB;&#x7EC8;&#x6B62;&#x4FE1;&#x53F7;
+(killSignal&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;&apos;SIGKILL&apos;)&#x7EC8;&#x6B62;&#x3002;maxBuffer &#x6307;&#x5B9A;stdout &#x548C;stderr &#x6700;&#x5927;&#x53EF;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x503C;
+&#x5B50;&#x8FDB;&#x7A0B;&#x5C06;&#x88AB;&#x7EC8;&#x6B62;&#x3002;</p>
+<p><strong>child.kill(signal=&apos;SIGTERM&apos;)</strong></p>
+<p>&#x5411;&#x5B50;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x4FE1;&#x53F7;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#x53C2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x53D1;&#x9001;&apos;SIGTERM&apos;&#x4FE1;&#x53F7;&#x3002;&#x6240;&#x6709;&#x53EF;&#x7528;&#x4FE1;&#x53F7;&#x5217;&#x8868;&#x8BF7;&#x53C2;&#x8003;signal(7)&#x3002;</p>
+<pre><code>var spawn = require(&apos;child_process&apos;).spawn,
+grep = spawn(&apos;grep&apos;, [&apos;ssh&apos;]);
+grep.on(&apos;exit&apos;, function (code, signal) {
+console.log(&apos;child process terminated due to receipt of signal &apos;+signal);
+});
+// send SIGHUP to process
+grep.kill(&apos;SIGHUP&apos;);
+</code></pre><p>&#x6CE8;&#x610F;&#xFF0C;&#x867D;&#x7136;&#x6B64;&#x51FD;&#x6570;&#x540D;&#x4E3A;kill&#xFF0C;&#x4F46;&#x53D1;&#x9001;&#x7684;&#x4FE1;&#x53F7;&#x4E0D;&#x4E00;&#x5B9A;&#x7EC8;&#x6B62;&#x5B50;&#x8FDB;&#x7A0B;&#x3002;kill &#x5B9E;&#x9645;&#x4E0A;&#x53EA;&#x4F1A;&#x5411;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x4FE1;&#x53F7;&#x3002;
+See kill(2)
+&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x8BF7;&#x53C2;&#x8003;kill(2)</p>
+<footer class="page-footer"><span class="copyright">&#xA9; Tony all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-5-28 15:29:42
+</span></footer></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../sys/" class="navigation navigation-prev " aria-label="Previous page: 通过sys访问模块">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../script/" class="navigation navigation-next " aria-label="Next page: Script 脚本">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Timers 计时器","level":"1.10","depth":1,"next":{"title":"Script 脚本","level":"1.11","depth":1,"path":"docs/script/README.md","ref":"docs/script/README.md","articles":[]},"previous":{"title":"通过sys访问模块","level":"1.9","depth":1,"path":"docs/sys/README.md","ref":"docs/sys/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/timers/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
