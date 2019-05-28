@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>fs对文件的操作 | nodejs</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="fs对文件的操作" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="nodejs文档" />
+<meta property="og:description" content="nodejs文档" />
+<link rel="canonical" href="http://localhost:4000/docs/fs/" />
+<meta property="og:url" content="http://localhost:4000/docs/fs/" />
+<meta property="og:site_name" content="nodejs" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/docs/fs/","headline":"fs对文件的操作","description":"nodejs文档","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=c5ccc10d5dbcf8e77514e97c7bc308afb1b9f621">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">nodejs</a></h1>
+      
+
+      <h1 id="fs对文件的操作">fs对文件的操作</h1>
+<p>###fs.Stats 获取文件信息
+fs.stat()和fs.lstat()函数返回如下类型的对象：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stats.isFile()
+stats.isDirectory()
+stats.isBlockDevice()
+stats.isCharacterDevice()
+stats.isSymbolicLink() (only valid with fs.lstat())
+stats.isFIFO()
+stats.isSocket()```
+
+###fs.ReadStream 读取文件
+ReadStream 是一个只读流。
+
+
+**fs.createReadStream(path, [options])**
+fs.createReadStream 函数新建只读流对象。（请参考“只读流”章节）
+options 是一个默认值如下所示的对象：
+
+
+</code></pre></div></div>
+<p>{
+‘flags’: ‘r’
+, ‘encoding’: null
+, ‘mode’: 0666
+, ‘bufferSize’: 4 * 1024
+}```</p>
+
+<p>options 对象可以包含’start’和’end’参数用于从文件中读取一个范围内的数据，而不是整个文件。开始和结束都包
+含并且从偏移0的位置开始，使用时必须同时指定这两个参数。
+An example to read the last 10 bytes of a file which is 100 bytes long:</p>
+
+<p>例子，读取一个100字节文件的最后十字节。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fs.createReadStream('sample.txt', {start: 90, end: 99});```
+###fs.WriteStream 写入文件
+WriteStream 是一个可写流。
+
+
+**Event: 'open' function (fd) { }**
+
+
+fd 是可写流使用的文件描述符。
+fs.createWriteStream(path, [options])
+此函数新建一个WriteStream 对象（参见"可写流"章节）。
+
+
+options is an object with the following defaults:
+
+
+options 是一个具有如下默认值的对象：
+
+
+</code></pre></div></div>
+<p>{
+‘flags’: ‘w’
+, ‘encoding’: ‘null’
+, ‘mode’: 0666
+}```</p>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

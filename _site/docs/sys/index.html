@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>通过sys访问模块 | nodejs</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="通过sys访问模块" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="nodejs文档" />
+<meta property="og:description" content="nodejs文档" />
+<link rel="canonical" href="http://localhost:4000/docs/sys/" />
+<meta property="og:url" content="http://localhost:4000/docs/sys/" />
+<meta property="og:site_name" content="nodejs" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/docs/sys/","headline":"通过sys访问模块","description":"nodejs文档","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=c5ccc10d5dbcf8e77514e97c7bc308afb1b9f621">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">nodejs</a></h1>
+      
+
+      <h1 id="通过sys访问模块">通过sys访问模块</h1>
+
+<p>本章介绍的函数包含在sys模块中，可以通过require(‘sys’)访问他们。</p>
+
+<p><strong>sys.print(string)</strong></p>
+
+<p>此函数和console.log()类似，只是它不输出结尾的换行符。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require('sys').print('String with no newline');```
+
+**sys.debug(string)**
+
+
+同步输出函数，此函数将阻塞进程并将字符串打印到标准错误输出（stderr）。
+</code></pre></div></div>
+<p>require(‘sys’).debug(‘message on stderr’);```
+<strong>sys.log(string)</strong></p>
+
+<p>将字符串输出至标准输出（stdout,就是控制台），附加时间戳。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require('sys').log('Timestmaped message.');```
+
+**sys.inspect(object, showHidden=false, depth=2)**
+
+
+将对象转化为字符串的形式返回，对调试非常有用。
+
+
+如果showHidden 参数设定为true，则对象的非枚举属性也会被转化。
+如果指定depth 参数，它告诉解析器(inspectter)格式化对象的时候要递归的次数。这个参数对于解析(inspecting)
+复杂的对象很有用。
+
+
+默认只递归两次。要想无限递归，请传递null。
+例子，解析sys 对象的所有属性：
+</code></pre></div></div>
+<p>var sys = require(‘sys’);
+console.log(sys.inspect(sys, true, null));```
+<strong>sys.pump(readableStream, writeableStream, [callback])</strong>
+Experimental 实验性的</p>
+
+<p>从readableStream 读取数据并写入writableStream。如果writeableStream.write(data)返回flase，readableStream 将
+暂停，直到writableStream 的drain 事件被触发。当writableStream 关闭或者错误发生时，回调函数（第三个参
+数）会被调用，并接受一个表示错误的参数。</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

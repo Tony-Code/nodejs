@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Crypto 加密模块 | nodejs</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Crypto 加密模块" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="nodejs文档" />
+<meta property="og:description" content="nodejs文档" />
+<link rel="canonical" href="http://localhost:4000/docs/crypto/" />
+<meta property="og:url" content="http://localhost:4000/docs/crypto/" />
+<meta property="og:site_name" content="nodejs" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/docs/crypto/","headline":"Crypto 加密模块","description":"nodejs文档","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=c5ccc10d5dbcf8e77514e97c7bc308afb1b9f621">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">nodejs</a></h1>
+      
+
+      <h1 id="crypto-加密模块">Crypto 加密模块</h1>
+
+<p>使用require(‘crypto’)来访问这个模块。</p>
+
+<p>crypto 模块需要node 所运行的运行支持OpenSSL，该模块为使用安全证书实现HTTPS 安全网络以及HTTP 连
+接提供了支持。
+模块同样为OpenSSL 的hash、hmac、cipher、decipher、sign 以及verify 方法提供一层包装（以方便在Node 中
+使用）。</p>
+
+<p><strong>crypto.createCredentials(details)</strong></p>
+
+<p>建立一个证书对象，参数detail 是由键值对组成的字典。</p>
+
+<p>key : 一个字符串，包含PEM 编码的私钥</p>
+
+<p>cert: 一个字符串，包含PEM 编码的证书</p>
+
+<p>ca : 一个包含PEM
+编码的、可信任的数字中心认证证书的字符串或者字符串列表</p>
+
+<p>如果参数details 中没有’ca’ ， 那么node.js 将缺省使用
+http://mxr.mozilla.org/mozilla/source/security/nss/lib/ckfw/builtins/certdata.txt 中给出的可信任的公钥。</p>
+
+<p><strong>crypto.createHash(algorithm)</strong></p>
+
+<p>通过参数algorithm 指定算法建立并且返回一个哈希对象，可以用来产生哈希摘要。
+algorithm 参数依赖于node 运行平台上OpenSSL 所支持的有效算法。例如sha1,md5,sha256,sha512等，在最近发
+布的版本中, openssl list-message-digest-algorithms 将显示有效的算法摘要。</p>
+
+<p><strong>hash.update(data)</strong></p>
+
+<p>使用data 更新哈希表。当以流的方式接受新数据时（数据可能被为分多次接收），可多次调用此方法。</p>
+
+<p><strong>hash.digest(encoding=’binary’)</strong></p>
+
+<p>计算所有传递来数据的哈希摘要。编码可以是’hex’,’binary’或者’base64’。</p>
+
+<p><strong>crypto.createHmac(algorithm, key)</strong></p>
+
+<p>通过指定算法(algorithm)和密钥(key)建立并返回一个加密的hmac 对象。
+和createhash 函数一样，参数algorithm 的选择依赖于node 运行平台上OpenSSL 所支持的有效算法，key 是要使
+用的HMAC 私钥。</p>
+
+<p><strong>hmac.update(data)</strong></p>
+
+<p>更新指定数据(参数data)的hmac 的内容，当以流的方式接收新数据(参数data)时，可多次调用此方法。</p>
+
+<p><strong>hmac.digest(encoding=’binary’)</strong></p>
+
+<p>计算所有传递来数据的hmac 摘要。编码可以是’hex’,’binary’或者’base64’ 。</p>
+
+<p><strong>crypto.createCipher(algorithm, key)</strong></p>
+
+<p>通过指定算法(algorithm )和密钥(key)建立并返回一个cipher 对象
+算法参数的内容依赖于OPENSSL 所支持的有效算法，例如aes192等等。OpenSSL 的list-cipher-algorithms 将显
+示有效的cipher 算法。</p>
+
+<p><strong>cipher.update(data, input_encoding=’binary’, output_encoding=’binary’)</strong></p>
+
+<p>更新参数data 所代表的cipher ， input_encodin 是初始数据的编码， 编码可以是’utf8’,’ascii’ 或者’binary’ 。
+output_encoding 参数指定了加密数据的输出编码，编码可以是’binary’,’base64’或者’hex’。
+返回加密后的内容，当以流的方式接收新数据时，可多次调用此方法。</p>
+
+<p><strong>cipher.final(output_encoding=’binary’)</strong></p>
+
+<p>返回剩余的已加密内容，output_eocoding 可以是’binary’,’ascii’,’utf8’中的一个。</p>
+
+<p><strong>crypto.createDecipher(algorithm, key)</strong></p>
+
+<p>通过参数algorithm 和key 建立并返回一个decipher 对象。这是前面cipher 对象的一个镜像.</p>
+
+<p><strong>decipher.update(data, input_encoding=’binary’, output_encoding=’binary’)</strong></p>
+
+<p>更新参数data 所代表的decipher ，input_encoding 是初始数据的编码，编码可以是’binary’,’base64’或者’hex’。
+output_encoding 参数指定了已解密的铭文的输出编码，编码可以是’binary’,’base64’或者’hext’</p>
+
+<p><strong>decipher.final(output_encoding=’binary’)</strong></p>
+
+<p>返回其余解密后的文本。参数output_encoding 是’binary’, ‘ascii’ or ‘utf8’中的一个.</p>
+
+<p><strong>crypto.createSign(algorithm)</strong></p>
+
+<p>通过参数algorithm 建立并返回一个signing 对象。根据当前openSSL 版本,penssl 的list-public-key-algorithms 将
+显示singning 的有效算法.例如’RSA-SHA256’.</p>
+
+<p><strong>signer.update(data)</strong></p>
+
+<p>用参数data 更新signer 对象，当以流的方式接收新数据时，可多次调用此方法。</p>
+
+<p><strong>signer.sign(private_key, output_format=’binary’)</strong></p>
+
+<p>计算所有signer 里已经更新的数据的签名。private_key 是一个字符串，包含用于签名的PEM 编码的私钥。
+返回用output_format 指定编码的签名，编码可以是’binary’, ‘hex’ or ‘base64’</p>
+
+<p><strong>crypto.createVerify(algorithm)</strong></p>
+
+<p>通过指定algorithm 建立并返回一个verification 对象.这是上面signing 对象的一个镜像。</p>
+
+<p><strong>verifier.update(data)</strong></p>
+
+<p>用新数据(参数data)更新verifyer 对象，当以流的方式接收新数据时，可多次调用此方法。</p>
+
+<p><strong>verifier.verify(public_key, signature, signature_format=’binary’)</strong></p>
+
+<p>用包含有PEM 编码的公钥，即参数public_key 来验证电子签名数据。参数signature 是先前用此数据计算的签
+名，参数signature_format 可以是’binary’, ‘hex’ or ‘base64’.
+根据签名和公钥对数据的验证结果返回true 或false。</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

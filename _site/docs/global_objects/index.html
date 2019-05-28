@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Global Objects 全局对象 | nodejs</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Global Objects 全局对象" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="nodejs文档" />
+<meta property="og:description" content="nodejs文档" />
+<link rel="canonical" href="http://localhost:4000/docs/global_objects/" />
+<meta property="og:url" content="http://localhost:4000/docs/global_objects/" />
+<meta property="og:site_name" content="nodejs" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/docs/global_objects/","headline":"Global Objects 全局对象","description":"nodejs文档","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=c5ccc10d5dbcf8e77514e97c7bc308afb1b9f621">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">nodejs</a></h1>
+      
+
+      <h1 id="global-objects-全局对象">Global Objects 全局对象</h1>
+<p>这些对象在全局范围内都可用，并且可以从任何位置访问。</p>
+
+<p><strong>global</strong></p>
+
+<p>全局命名空间对象</p>
+
+<p><strong>process</strong></p>
+
+<p>有关process 对象请参见’process’章节。</p>
+
+<p><strong>require()</strong></p>
+
+<p>To require modules. See the ‘Modules’ section.
+用来加载模块。参见“Modules 模块”这一节。</p>
+
+<p><strong>require.paths</strong></p>
+
+<p>一个保存了require 函数搜索路径的数组。你可以修改此数组添加自定义路径。</p>
+
+<p>例子：在搜索路径列表开头添加一个路径。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require.paths.unshift('/usr/local/node');
+console.log(require.paths);
+// /usr/local/node,/Users/mjr/.node_libraries```
+
+**__filename**
+
+
+当前正在执行的脚本的文件名。此为绝对路径，且和命令行参数所指定的文件名不一定相同。
+
+
+例子：执行/Users/mjr 下的example.js 文件。
+
+
+</code></pre></div></div>
+<p>console.log(__filename);
+// /Users/mjr/example.js```</p>
+
+<p><strong>__dirname</strong></p>
+
+<p>当前执行脚本的文件夹。</p>
+
+<p>例子：执行/Users/mid 下的example.js 文件。</p>
+
+<p><code class="highlighter-rouge">
+console.log(__dirname);
+// /Users/mjr</code></p>
+
+<p><strong>module</strong></p>
+
+<p>指向当前模块的引用。特别指出，module.exports 就是exprots 对象。更多信息请参看源代码文件src/process.js。</p>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

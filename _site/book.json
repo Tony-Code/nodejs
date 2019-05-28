@@ -1,0 +1,67 @@
+{
+    "title": "NodeJS中文文档",
+    "author": "tony",
+    "description": "本书适合nodejs入门学者",
+    "language": "zh-hans",
+    "gitbook": "3.2.3",
+    "structure": {
+        "readme": "README.md"
+    },
+    "styles": {
+        "website": "/source/css/website.css"
+    },
+    "plugins": [
+        "splitter",
+        "chapter-fold",
+        "code",
+        "favicon",
+        "tbfed-pagefooter",
+        "-sharing",
+        "sharing-plus",
+        "github",
+        "github-buttons",
+        "lightbox"
+    ],
+    "pluginsConfig": {
+        "favicon":{
+            "shortcut": "/source/images/favicon.ico",
+            "bookmark": "/source/images/favicon.ico",
+            "appleTouch": "/source/images/favicon.ico",
+            "appleTouchMore": {
+                "120x120": "/source/images/favicon.ico",
+                "180x180": "/source/images/favicon.ico"
+            }
+        },
+        "tbfed-pagefooter": {
+            "copyright":"&copy Tony",
+            "modify_label": "该文件修订时间：",
+            "modify_format": "2019-5-28 15:29:42"
+        },
+        "sharing": {
+            "douban": false,
+            "facebook": true,
+            "google": true,
+            "pocket": false,
+            "qq": false,
+            "qzone": false,
+            "twitter": true,
+            "weibo": false,
+            "all": [
+                "weibo","qq","qzone","douban"
+            ]
+        },
+        "github": {
+            "url": "https://github.com/Tony-Code"
+        },
+        "github-buttons": {
+            "buttons": [{
+                    "user": "Tony-Code",
+                    "repo": "nodejs",
+                    "type": "star",
+                    "size": "small",
+                    "count": true
+                }
+            ]
+        }
+    }
+}
