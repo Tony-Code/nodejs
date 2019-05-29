@@ -38,7 +38,7 @@ Buffer 和Javascirpt 中string 对象之间的转换需要指定编码方式。�
 
 示例：将一个utf8字符串写入buffer，然后打印出来
 
-```
+```javascript
 buf = new Buffer(256);
 len = buf.write('\u00bd + \u00bc = \u00be', 0);
 console.log(len + " bytes: " + buf.toString('utf8', 0, len));
@@ -57,7 +57,7 @@ console.log(len + " bytes: " + buf.toString('utf8', 0, len));
 
 例如：将一个ASCII 字符串复制进buffer，每次一个字节：
 
-```
+```javascript
 str = "node.js",
 buf = new Buffer(str.length),
 i;
@@ -75,7 +75,7 @@ console.log(buf);
 返回字符串的实际字节数。这个函数和String.prototype.length 不同，后者返回字符串的字符数。
 
 
-```
+```javascript
 str = '\u00bd + \u00bc = \u00be';
 console.log(str + ": " + str.length + " characters, " +
 Buffer.byteLength(str, 'utf8') + " bytes");
@@ -86,7 +86,7 @@ Buffer.byteLength(str, 'utf8') + " bytes");
 buffer 的大小（以字节为单位）。请注意，这个不是存放内容的大小，而是分配给buffer 对象的内存大小。这个
 大小不随buffer 中存放内容的多少而改变。
 
-```
+```javascript
 buf = new Buffer(1234);
 console.log(buf.length);
 buf.write("some string", "ascii", 0);
@@ -101,7 +101,7 @@ console.log(buf.length);
 
 例如：新建两个buffer 对象，然后将buf1中16至19字节拷贝到buf2中第八字节开始的空间中。
 
-```
+```javascript
 buf1 = new Buffer(26),
 buf2 = new Buffer(26),
 i;
@@ -122,7 +122,7 @@ console.log(buf2.toString('ascii', 0, 25));
 
 例如：使用字母表建立一个buffer 对象，并剪切出一个新的buffer，然后修改原始buffer 的一个字节。
 
-```
+```javascript
 buf1 = new Buffer(26), buf2,
 i;
 for (var i = 0 ; i < 26 ; i += 1) {

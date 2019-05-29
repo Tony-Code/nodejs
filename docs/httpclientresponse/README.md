@@ -4,7 +4,7 @@
 
 
 **Event: 'data'**
-```
+```javascript
 function (chunk) {}```
 
 当接收到消息体一部分的时候触发。
@@ -15,7 +15,7 @@ function (chunk) {}```
 
 
 **Event: 'end'**
-```
+```javascript
 function () {}```
 
 该事件对于每个受到的消息会触发一次。它没有参数，在触发过这个事件后将不会再触发其他事件将了。

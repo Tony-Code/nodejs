@@ -10,19 +10,19 @@
 此函数和console.log()类似，只是它不输出结尾的换行符。
 
 
-```
+```javascript
 require('sys').print('String with no newline');```
 
 **sys.debug(string)**
 
 
 同步输出函数，此函数将阻塞进程并将字符串打印到标准错误输出（stderr）。
-```
+```javascript
 require('sys').debug('message on stderr');```
 **sys.log(string)**
 
 将字符串输出至标准输出（stdout,就是控制台），附加时间戳。
-```
+```javascript
 require('sys').log('Timestmaped message.');```
 
 **sys.inspect(object, showHidden=false, depth=2)**
@@ -38,7 +38,7 @@ require('sys').log('Timestmaped message.');```
 
 默认只递归两次。要想无限递归，请传递null。
 例子，解析sys 对象的所有属性：
-```
+```javascript
 var sys = require('sys');
 console.log(sys.inspect(sys, true, null));```
 **sys.pump(readableStream, writeableStream, [callback])**

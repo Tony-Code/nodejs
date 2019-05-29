@@ -7,7 +7,7 @@
 
 序列化对象至查询字串。选择性地覆写默认分割符和增补字符(assignment characters)。
 例子：
-```
+```javascript
 querystring.stringify({foo: 'bar'})
 // returns
 'foo=bar'
@@ -18,7 +18,7 @@ querystring.stringify({foo: 'bar', baz: 'bob'}, ';', ':')
 此方法默认由阵列和对象(obj)排列成PHP/Rails 风格的查询字串，例子：
 
 
-```
+```javascript
 querystring.stringify({foo: ['bar', 'baz', 'boz']})
 // returns
 'foo%5B%5D=bar&foo%5B%5D=baz&foo%5B%5D=boz'
@@ -28,7 +28,7 @@ querystring.stringify({foo: {bar: 'baz'}})
 
 若希望停用字元解析(例如当生成参数予Java servlet 时)，可以设置munge(字元解析) 参数成false(假值)，例
 子：
-```
+```javascript
 querystring.stringify({foo: ['bar', 'baz', 'boz']}, '&', '=', false)
 // returns
 'foo=bar&foo=baz&foo=boz'```
@@ -40,7 +40,7 @@ querystring.stringify({foo: ['bar', 'baz', 'boz']}, '&', '=', false)
 
 反序列化查询字串至对象。选择性地覆写默认分割符和增补字符
 (assignment characters)。
-```
+```javascript
 querystring.parse('a=b&b=c')
 // returns
 { 'a': 'b'

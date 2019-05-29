@@ -24,7 +24,7 @@ Node 中的很多对象都会触发事件，例如：一个TCP 服务器在收�
 Event: 'error'
 
 
-```
+```javascript
 function (exception) { }```
 
  如果发生错误，'error'事件将会被触发。这是一个特殊事件，如果没有相应的监听函数监听这个事件， node 将
@@ -35,7 +35,7 @@ function (exception) { }```
 向指定的事件监听器数组尾部添加一个新监听器。
 
 
-```
+```javascript
 server.on('stream', function (stream) {
 console.log('someone connected!');
 });```
@@ -46,7 +46,7 @@ console.log('someone connected!');
 从指定监听器数组中删除一个监听器。需要注意的是，此操作将会改变处于被删监听器之后的那些监听器的索
 引。
 
-```
+```javascript
 var callback = function(stream) {
 console.log('someone connected!');
 };
@@ -62,7 +62,7 @@ server.removeListener('stream', callback);```
 
 返回指定事件的监听器数组。你可以操作数组的内容，比如说删除一个监听器。
 
-```
+```javascript
 server.on('stream', function (stream) {
 console.log('someone connected!');
 });
@@ -70,7 +70,7 @@ console.log(sys.inspect(server.listeners('stream'));
 // [ [Function] ]```
 
 
-```
+```javascript
 emitter.emit(event, [arg1], [arg2], [...])```
 
 使用所提供的参数，依次执行事件监听器数组中的每一个监听函数。

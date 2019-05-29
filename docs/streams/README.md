@@ -11,7 +11,7 @@ stream 是一个抽象接口，node 中有很多对象实现了这个接口。�
 
 Event: 'data'
 
-```
+```javascript
 function (data) { }```
 
 
@@ -20,7 +20,7 @@ function (data) { }```
 
 **Event: 'end'**
 
-```
+```javascript
 function () { }```
 
 此事件在流遇到EOF(在TCP 中为FIN)时被触发，表示该流不会再有数据（不会再次触发'data'事件）。如果该流
@@ -29,7 +29,7 @@ function () { }```
 
 **Event: 'error'**
 
-```
+```javascript
 function (exception) { }```
 
 在收取数据出错时被触发。
@@ -37,7 +37,7 @@ function (exception) { }```
 
 **Event: 'close'**
 
-```
+```javascript
 function () { }```
 
 
@@ -46,7 +46,7 @@ function () { }```
 
 **Event: 'fd'**
 
-```
+```javascript
 function (fd) { }
 ```
 
@@ -81,7 +81,7 @@ function (fd) { }
 
 **Event: 'drain'**
 
-```
+```javascript
 function () { }```
 
 在一个wrire() 方法被调用并返回false 后触发，表明可以安全的再次写入该stream。
@@ -89,7 +89,7 @@ function () { }```
 
 **Event: 'error'**
 
-```
+```javascript
 function (exception) { }
 ```
 
@@ -97,7 +97,7 @@ function (exception) { }
 
 **Event: 'close'**
 
-```
+```javascript
 function () { }```
 
 当底层的文件描述符已终止时发出。

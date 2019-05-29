@@ -1,6 +1,6 @@
 # Script 脚本
 Script 类可以编译执行JavaScript 代码。你可以用以下方式访问Script 类：
-```
+```javascript
 var Script = process.binding('evals').Script;```
 
 JavaScript 代码可以被编译、立刻执行或者编译、保存、延时执行。
@@ -15,7 +15,7 @@ JavaScript 代码可以被编译、立刻执行或者编译、保存、延时执
 
 
 示例：演示使用Script.runInThisContext 函数和eval 函数执行同一段代码：
-```
+```javascript
 var localVar = 123,
 usingscript, evaled,
 Script = process.binding('evals').Script;
@@ -44,7 +44,7 @@ sandbox 和filename 参数都是可选的。
 
 
 例子：编译并执行一段代码，这段代码递增并新建一个全局变量。这些全局变量都保存在sandbox 中。
-```
+```javascript
 var sys = require('sys'),
 Script = process.binding('evals').Script,
 sandbox = {
@@ -84,7 +84,7 @@ console.log(sys.inspect(sandbox));
 
 
 例子：使用script.runInThisContext 函数实现代码的一次编译多次执行。
-```
+```javascript
 var Script = process.binding('evals').Script,
 scriptObj, i;
 globalVar = 0;
@@ -104,7 +104,7 @@ console.log(globalVar);
 例子：编译并执行一段代码，这段代码递增并新建一个全局变量，这些全局变量都保存在sandbox 中。然后多次执行这段代码，这些全局变量都保存在沙盒(sandbox)中。
 
 
-```
+```javascript
 var sys = require('sys'),
 Script = process.binding('evals').Script,
 scriptObj, i,
@@ -135,7 +135,7 @@ console.log(sys.inspect(sandbox));
 异步方式的例子：
 
 
-```
+```javascript
 var fs = require('fs');
 fs.unlink('/tmp/hello', function (err) {
 if (err) throw err;
@@ -145,13 +145,13 @@ console.log('successfully deleted /tmp/hello');
 同步方式的例子：
 
 
-```
+```javascript
 var fs = require('fs');
 fs.unlinkSync('/tmp/hello')
 console.log('successfully deleted /tmp/hello');```
 
 异步函数没有一定的顺序，所以以下例子容易发生错误：
-```
+```javascript
 fs.rename('/tmp/hello', '/tmp/world', function (err) {
 if (err) throw err;
 console.log('renamed complete');
@@ -162,7 +162,7 @@ console.log('stats: ' + JSON.stringify(stats));
 });```
 
 这有可能fs.state 于fs.rename 前执行。正确的做法是嵌套回传函数。
-```
+```javascript
 fs.rename('/tmp/hello', '/tmp/world', function (err) {
 if (err) throw err;
 fs.stat('/tmp/world', function (err, stats) {
@@ -213,7 +213,7 @@ console.log('stats: ' + JSON.stringify(stats));
 
 
 利用路径异步读取属性(stat(2))。回调函数的第二个参数是fs.Stats 对象(err, stats)，例如：
-```
+```javascript
 { dev: 2049
 , ino: 305352
 , mode: 16877
@@ -452,7 +452,7 @@ fs.read(字串)的同步方式。返回读取动作的数据大小。
 
 透过文件路径异步读取内容，例子：
 
-```
+```javascript
 fs.readFile('/etc/passwd', function (err, data) {
 if (err) throw err;
 console.log(data);
@@ -475,7 +475,7 @@ fs.readFile()的同步方式。返回文件内容。
 
 异步写入数据至文件，data(数据)可以为字串或缓冲区。
 例子：
-```
+```javascript
 fs.writeFile('message.txt', 'Hello Node', function (err) {
 if (err) throw err;
 console.log('It\'s saved!');
@@ -500,7 +500,7 @@ fs.writeFile()的同步方式。
 传递给监听函数的参数分别是当前状态对象(curr)以及前次状态对象(prev)。
 
 
-```
+```javascript
 fs.watchFile(f, function (curr, prev) {
 console.log('the current mtime is: ' + curr.mtime);
 console.log('the previous mtime was: ' + prev.mtime);

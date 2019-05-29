@@ -1,7 +1,7 @@
 # fs对文件的操作
 ###fs.Stats 获取文件信息
 fs.stat()和fs.lstat()函数返回如下类型的对象：
-```
+```javascript
 stats.isFile()
 stats.isDirectory()
 stats.isBlockDevice()
@@ -19,7 +19,7 @@ fs.createReadStream 函数新建只读流对象。（请参考“只读流”章
 options 是一个默认值如下所示的对象：
 
 
-```
+```javascript
 {
 'flags': 'r'
 , 'encoding': null
@@ -33,7 +33,7 @@ An example to read the last 10 bytes of a file which is 100 bytes long:
 
 
 例子，读取一个100字节文件的最后十字节。
-```
+```javascript
 fs.createReadStream('sample.txt', {start: 90, end: 99});```
 ###fs.WriteStream 写入文件
 WriteStream 是一个可写流。
@@ -53,7 +53,7 @@ options is an object with the following defaults:
 options 是一个具有如下默认值的对象：
 
 
-```
+```javascript
 {
 'flags': 'w'
 , 'encoding': 'null'

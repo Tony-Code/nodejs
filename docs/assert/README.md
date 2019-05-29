@@ -33,7 +33,7 @@
 译注：三种比较的不同之处（感谢tytsim）：
 
 
-```
+```javascript
 a = {'a':'1','b':'2'};
 b = {'b':'2','a':'1'};
 equal(a, b) 返回false
@@ -73,7 +73,7 @@ strictEqual(a, b) 返回false```
 
 
 判断参数value 是否为false，如果为true 则抛出异常。通常用在回调函数中判断是否发生了错误。
-译著，实现代码： ```
+译著，实现代码： ```javascript
 assert.ifError = function (err) { if (err) {throw err; }};```
 
 

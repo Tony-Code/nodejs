@@ -8,7 +8,7 @@ The contents of foo.js:
 foo.js 的代码：
 
 
-```
+```javascript
 var circle = require('./circle');
 console.log( 'The area of a circle of radius 4 is '
 + circle.area(4));```
@@ -17,7 +17,7 @@ The contents of circle.js:
 cirle.js 的代码：
 
 
-```
+```javascript
 var PI = 3.14;
 exports.area = function (r) {
 return PI * r * r;

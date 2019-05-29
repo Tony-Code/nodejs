@@ -4,7 +4,7 @@
 
 
 下面是一个先解析'www.google.com'，然后将解析出来的IP 地址再做反向解析。
-```
+```javascript
 var dns = require('dns');
 dns.resolve4('www.google.com', function (err, addresses) {
 if (err) throw err;

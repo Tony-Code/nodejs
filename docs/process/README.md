@@ -6,7 +6,7 @@ process 对象是一个全局对象，可以在任何地方访问。它也是一
 **Event: 'exit'**
 
 
-```
+```javascript
 function () {}```
 
 
@@ -17,7 +17,7 @@ function () {}```
 示例，监听exit 事件：
 
 
-```
+```javascript
 process.on('exit', function () {
 process.nextTick(function () {
 console.log('This will not run');
@@ -27,7 +27,7 @@ console.log('About to exit.');
 
 
 **Event: 'uncaughtException'**
-```
+```javascript
 function (err) { }```
 
 
@@ -35,7 +35,7 @@ function (err) { }```
 栈并结束应用程序的执行）。
 示例，监听'uncaughtException'事件：
 
-```
+```javascript
 process.on('uncaughtException', function (err) {
 console.log('Caught exception: ' + err);
 });
@@ -54,7 +54,7 @@ console.log('This will not run.');```
 **Signal Events**
 
 
-```
+```javascript
 function () {}```
 
 当进程接收到信号时被触发。要查看如SIGINT 或SIGUSR1之类的标准POSIX 信号列表，请参看参看
@@ -64,7 +64,7 @@ sigaction(2)。
 监听SIGINT 信号的示例：
 
 
-```
+```javascript
 var stdin = process.openStdin();
 process.on('SIGINT', function () {
 console.log('Got SIGINT. Press Control-D to exit.');
@@ -82,7 +82,7 @@ console.log('Got SIGINT. Press Control-D to exit.');
 示例：console.log 的定义
 
 
-```
+```javascript
 console.log = function (d) {
 process.stdout.write(d + '\n');
 };```
@@ -94,7 +94,7 @@ process.stdout.write(d + '\n');
 打开标准输入流，返回一个只读流对象。
 打开标准输入并同时监听两个事件的示例：
 
-```
+```javascript
 var stdin = process.openStdin();
 stdin.setEncoding('utf8');
 stdin.on('data', function (chunk) {
@@ -109,14 +109,14 @@ process.stdout.write('end');
 
 保存命令行参数的数组。第一个参数是"node"，第二个参数是Javascript 文件的文件名，接下来是附加的命令
 行参数。
-```
+```javascript
 // print process.argv
 process.argv.forEach(function (val, index, array) {
 console.log(index + ': ' + val);
 });```
 
 上述代码将产生如下输出：
-```
+```javascript
 $ node process-2.js one two=three four
 0: node
 1: /Users/mjr/work/node/process-2.js
@@ -133,7 +133,7 @@ $ node process-2.js one two=three four
 例如：
 
 
-```
+```javascript
 /usr/local/bin/node```
 
 **process.chdir(directory)**
@@ -142,7 +142,7 @@ $ node process-2.js one two=three four
 改变进程的当前目录，失败时抛出异常。
 
 
-```
+```javascript
 console.log('Starting directory: ' + process.cwd());
 try {
 process.chdir('/tmp');
@@ -159,7 +159,7 @@ console.log('chdir: ' + err);
 传递的代码)无法访问本地作用域。如果编译的代码产生堆栈输出，filename 参数将会被用作这段代码的文件名。
 示例，使用process.compile 和eval 执行同一段代码：
 
-```
+```javascript
 var localVar = 123,
 compiled, evaled;
 compiled = process.compile('localVar = 1;', 'myfile.js');
@@ -185,7 +185,7 @@ process.compile 并没有访问本地作用域，所以localVar 变量并没有�
 返回进程的当前工作目录。
 
 
-```
+```javascript
 console.log('Current directory: ' + process.cwd());```
 
 **process.env**
@@ -213,7 +213,7 @@ console.log('Current directory: ' + process.cwd());```
 返回进程的用户组标识。（参见getgid(2).）这个是数字形式的组ID，并非组名。
 
 
-```
+```javascript
 console.log('Current gid: ' + process.getgid());```
 
 **process.setgid(id)**
@@ -221,7 +221,7 @@ console.log('Current gid: ' + process.getgid());```
 
 当前进程的用户组标识。（参见setgid(2).）这个函数可以接受数字形式的组ID 或者是字符串形式的组名。如果
 指定组名，此函数会阻塞进程直至将组名解析成为数字ID。
-```
+```javascript
 console.log('Current gid: ' + process.getgid());
 try {
 process.setgid(501);
@@ -236,7 +236,7 @@ console.log('Failed to set gid: ' + err);
 返回当前进程的用户标识。（参看getuid(2).）此函数返回数字形式的用户ID，而不是用户名。
 
 
-```
+```javascript
 console.log('Current uid: ' + process.getuid());```
 
 **process.setuid(id)**
@@ -244,7 +244,7 @@ console.log('Current uid: ' + process.getuid());```
 
 指定当前进程的用户标识。（参看setuid(2).）这个函数可以接受数字形式的用户ID 或者字符串形式的用户名。
 如果指定用户名，此方法在将用户名解析成用户ID 时会阻塞。
-```
+```javascript
 console.log('Current uid: ' + process.getuid());
 try {
 process.setuid(501);
@@ -258,14 +258,14 @@ console.log('Failed to set uid: ' + err);
 
 
 编译进可执行文件的属性，代表NODE_VERSION。
-```
+```javascript
 console.log('Version: ' + process.version);```
 
 **process.installPrefix**
 
 
 编译进可执行文件的属性，代表NODE_PREFIX。
-```
+```javascript
 console.log('Prefix: ' + process.installPrefix);```
 
 **process.kill(pid, signal='SIGINT')**
@@ -278,7 +278,7 @@ console.log('Prefix: ' + process.installPrefix);```
 请注意，虽然此函数名为process.kill，但是它仅仅用于发送信号，就像kill 系统调用。发送的信号做除了结束
 目标进程外，还可能做其他的事情。
 发送信号的示例：
-```
+```javascript
 process.on('SIGHUP', function () {
 console.log('Got SIGHUP signal.');
 });
@@ -292,7 +292,7 @@ process.kill(process.pid, 'SIGHUP');```
 
 
 当前进程的ID
-```
+```javascript
 console.log('This process is pid ' + process.pid);```
 
 **process.title**
@@ -305,7 +305,7 @@ console.log('This process is pid ' + process.pid);```
 
 
 表示程序运行的平台，如'linux2','darwin'等。
-```
+```javascript
 console.log('This platform is ' + process.platform);```
 
 **process.memoryUsage()**
@@ -314,13 +314,13 @@ console.log('This platform is ' + process.platform);```
 返回一个描述Node 进程内存占用的对象。
 
 
-```
+```javascript
 var sys = require('sys');
 console.log(sys.inspect(process.memoryUsage()));```
 
 如上代码将输出：
 
-```{ rss: 4935680
+```javascript{ rss: 4935680
 , vsize: 41893888
 , heapTotal: 1826816
 , heapUsed: 650472

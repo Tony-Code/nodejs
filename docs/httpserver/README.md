@@ -3,7 +3,7 @@
 
 
 **Event: 'request'**
-```
+```javascript
 function (request, response) { }```
 
 request 是http.ServerRequest 的一个实例，而response 则是http.ServerResponse 的一个实例
@@ -11,7 +11,7 @@ request 是http.ServerRequest 的一个实例，而response 则是http.ServerRes
 **Event: 'connection'**
 
 
-```
+```javascript
 function (stream) { }```
 
 当一个新的TCP stream 建立后发出此消息。stream 是一个net.Stream 的对象，通常用户不会访问/使用这个事件。
@@ -19,21 +19,21 @@ function (stream) { }```
 
 
 **Event: 'close'**
-```
+```javascript
 function (errno) { }```
 
 当服务器关闭的时候触发此事件。
 
 
 **Event: 'request'**
-```
+```javascript
 function (request, response) {}```
 
 每个请求发生的时候均会被触发。请记住，每个连接可能会有多个请求(在keep-alive 连接情况下)
 
 
 **Event: 'upgrade'**
-```
+```javascript
 function (request, socket, head)```
 
 每当一个客户端请求一个http upgrade 时候发出此消息。如果这个事件没有监听，那么请求upgrade 的客户端对
@@ -50,7 +50,7 @@ SOCKET 发送到服务器端的数据的话则需要自己绑定数据事件监�
 
 
 **Event: 'clientError'**
-```
+```javascript
 function (exception) {}```
 
 如果一个客户端连接的'error'事件被触发，此函数将被执行。

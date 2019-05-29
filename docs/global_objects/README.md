@@ -28,7 +28,7 @@ To require modules. See the 'Modules' section.
 例子：在搜索路径列表开头添加一个路径。
 
 
-```
+```javascript
 require.paths.unshift('/usr/local/node');
 console.log(require.paths);
 // /usr/local/node,/Users/mjr/.node_libraries```
@@ -42,7 +42,7 @@ console.log(require.paths);
 例子：执行/Users/mjr 下的example.js 文件。
 
 
-```
+```javascript
 console.log(__filename);
 // /Users/mjr/example.js```
 
@@ -55,7 +55,7 @@ console.log(__filename);
 例子：执行/Users/mid 下的example.js 文件。
 
 
-```
+```javascript
 console.log(__dirname);
 // /Users/mjr```
 

@@ -35,7 +35,7 @@ node 通过ChildProcess 类提供全面的popen(3)功能。
 
 
 **Event: 'exit'**
-```
+```javascript
 function (code, signal) {}```
 
 此事件在子进程结束后被触发。如果进程正常结束，code 参数的值就是子进程退出后的返回值，否则此参数为
@@ -65,7 +65,7 @@ See waitpid(2).
 子进程的PID
 Example:
 
-```
+```javascript
 var spawn = require('child_process').spawn,
 grep = spawn('grep', ['ssh']);
 console.log('Spawned child pid: ' + grep.pid);
@@ -78,7 +78,7 @@ grep.stdin.end();```
 第三个参数用于指定一些额外的选项，默认值如下：
 
 
-```
+```javascript
 { cwd: undefined
 , env: process.env,
 , customFds: [-1, -1, -1]
@@ -89,7 +89,7 @@ cwd 可以用于指定新进程的工作目录，env 指定新进程可见的环
 
 
 例子：执行命令'ls -lh /usr'并捕获标准输出、标准错误输出和退出代码（程序退出时，main 函数返回的代码）。
-```
+```javascript
 var sys = require('sys'),
 spawn = require('child_process').spawn,
 ls = spawn('ls', ['-lh', '/usr']);
@@ -103,7 +103,7 @@ ls.on('exit', function (code) {
 console.log('child process exited with code ' + code);
 });```
 例子： 实现'ps ax | grep ssh'命令。
-```
+```javascript
 var sys = require('sys'),
 spawn = require('child_process').spawn,
 ps = spawn('ps', ['ax']),
@@ -133,7 +133,7 @@ console.log('grep process exited with code ' + code);
 });```
 
 例子，检测退出代码：
-```
+```javascript
 var spawn = require('child_process').spawn,
 child = spawn('bad_command');
 child.stderr.on('data', function (data) {
@@ -150,7 +150,7 @@ console.log('Failed to start child process.');
 
 使用子进程执行命令，缓存子进程的输出，并将子进程的输出以回调函数参数的形式返回。
 
-```
+```javascript
 var sys = require('sys'),
 exec = require('child_process').exec,
 child;
@@ -166,7 +166,7 @@ console.log('exec error: ' + error);
 回调函数得到的参数分别为(error, stdout, stderr)。成功时error 参数是null；失败时error 参数是Error 的实例。
 error.code 是子进程的返回值，error.signal 保存终止进程的信号。
 exec 函数的第二个可选参数可以用来指定一些选项。默认值为
-```
+```javascript
 { encoding: 'utf8'
 , timeout: 0
 , maxBuffer: 200*1024
@@ -184,7 +184,7 @@ exec 函数的第二个可选参数可以用来指定一些选项。默认值为
 
 
 向子进程发送信号。如果不指定参数，默认发送'SIGTERM'信号。所有可用信号列表请参考signal(7)。
-```
+```javascript
 var spawn = require('child_process').spawn,
 grep = spawn('grep', ['ssh']);
 grep.on('exit', function (code, signal) {
