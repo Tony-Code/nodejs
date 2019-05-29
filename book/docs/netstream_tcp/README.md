@@ -6,21 +6,21 @@ net.Stream 实例会发出下列事件：
 
 
 **Event: 'connect'**
-```
+```javascript
 function () { }```
 
 当成功建立连接后触发此事件事件。详见connect()。
 
 
 **Event: 'secure'**
-```
+```javascript
 function () { }```
 
 当一个stream 与其对等端安全建立一个SSL 握手后触发。
 
 
 **Event: 'data'**
-```
+```javascript
 function (data) { }```
 
 当接收到数据时触发该事件，数据会是Buffer 或者String，数据的编码通过stream.setEncoding()来设计(查看可
@@ -28,7 +28,7 @@ function (data) { }```
 
 
 **Event: 'end'**
-```
+```javascript
 function () { }```
 
 当stream 发出一个FIN 包后触发此事件。这个事件发出后准备状态会变为‘只写’(writeOnly)。当这个事件被发出
@@ -36,7 +36,7 @@ function () { }```
 
 
 **Event: 'timeout'**
-```
+```javascript
 function () { }```
 
 当流因为不活动而超时时触发这个事件。这是唯一一个因为stream 空闲而通知的事件，这个时候用户必须手动
@@ -45,7 +45,7 @@ function () { }```
 
 
 **Event: 'drain'**
-```
+```javascript
 function () { }```
 
 当写缓冲区变空的时候触发这个事件，这个事件可以用来控制/调节上传。
@@ -54,14 +54,14 @@ Event: 'error'
 function (exception) { }
 当发生一个错误时候触发。‘close’事件将跟随这个事件被发出。
 **Event: 'close'**
-```
+```javascript
 function (had_error) { }```
 
 当stream 被完全关闭时发出这个事件。参数had_error 是一个用来标示stream 关闭是否是因为传输错误所导致
 的标志。
 
 
-```
+```javascript
 net.createConnection(port, host='127.0.0.1')```
 
 构造一个新的stream 对象并且打开一个stream 到指定的端口和主机，如果第二个参数没有写，则假设主机为

@@ -602,12 +602,14 @@ information and the number of bytes in the datagram.</p>
 <p>&#x5F53;&#x4E00;&#x4E2A;SOCKET &#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x636E;&#x5305;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#xFF0C; msg &#x662F;&#x7F13;&#x51B2;&#x533A;&#x53D8;&#x91CF;,rinfo &#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E86;&#x53D1;&#x9001;&#x8005;&#x5730;&#x5740;
 &#x4FE1;&#x606F;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x62A5;&#x5B57;&#x8282;&#x957F;&#x5EA6;&#x7684;&#x5BF9;&#x8C61;.</p>
 <p><strong>Event: &apos;listening&apos;</strong></p>
-<pre><code>function () { }
-</code></pre><p>&#x5F53;&#x4E00;&#x4E2A;SOCKET &#x5F00;&#x59CB;&#x76D1;&#x542C;&#x6570;&#x636E;&#x62A5;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;,&#x5F53;UDP SOCKET &#x5EFA;&#x7ACB;&#x540E;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;&#x800C;UNIX DOMAIN
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ }
+</code></pre>
+<p>&#x5F53;&#x4E00;&#x4E2A;SOCKET &#x5F00;&#x59CB;&#x76D1;&#x542C;&#x6570;&#x636E;&#x62A5;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;,&#x5F53;UDP SOCKET &#x5EFA;&#x7ACB;&#x540E;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;&#x800C;UNIX DOMAIN
 SOCKET &#x76F4;&#x5230;&#x5728;SOCKET &#x4E0A;&#x8C03;&#x7528;&#x4E86;bind()&#x65B9;&#x6CD5;&#x624D;&#x4F1A;&#x89E6;&#x53D1;&#x8FD9;&#x4E2A;&#x6D88;&#x606F;.</p>
 <p><strong>Event: &apos;close&apos;</strong></p>
-<pre><code>function () { }
-</code></pre><p>&#x5F53;&#x4E00;&#x4E2A;SOCKET &#x4F7F;&#x7528;close()&#x65B9;&#x6CD5;&#x5173;&#x95ED;&#x65F6;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;.&#x5728;&#x6B64;&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#x6B64;SOCKET &#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x6D88;&#x606F;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;.</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ }
+</code></pre>
+<p>&#x5F53;&#x4E00;&#x4E2A;SOCKET &#x4F7F;&#x7528;close()&#x65B9;&#x6CD5;&#x5173;&#x95ED;&#x65F6;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;.&#x5728;&#x6B64;&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#x6B64;SOCKET &#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x6D88;&#x606F;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;.</p>
 <p><strong>dgram.createSocket(type, [callback])</strong></p>
 <p>&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x62A5;SOCKET,&#x6709;&#x6548;&#x7C7B;&#x578B;&#x6709;:udp4,udp6,unix_dgram
 callback &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x9879;&#xFF0C;&#x53EF;&#x4F5C;&#x4E3A;message &#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x88AB;&#x52A0;&#x5165;&#x3002;</p>
@@ -616,17 +618,18 @@ callback &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x9879;&#xFF0C;&#x53EF
 &#x9879;&#x4F1A;&#x5728;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;sendto &#x5B8C;&#x6BD5;&#x540E;&#x88AB;&#x89E6;&#x53D1;&#x3002;&#x9664;&#x975E;callback &#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x5426;&#x5219;&#x91CD;&#x590D;&#x4F7F;&#x7528;buf &#x662F;&#x5F88;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;&#x8981;&#x6CE8;&#x610F;&#x9664;&#x975E;&#x8FD9;
 &#x4E2A;socket &#x5DF2;&#x7ECF;&#x4F7F;&#x7528;bind()&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x540D;&#x4E0A;&#xFF0C;&#x5426;&#x5219;&#x8FD9;&#x4E2A;SOCKET &#x65E0;&#x6CD5;&#x63A5;&#x6536;&#x5230;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x901A;&#x8FC7;unix domain socket /var/run/syslog &#x53D1;&#x9001;&#x6D88;&#x606F;&#x5230;syslogd &#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
-<pre><code>var dgram = require(&apos;dgram&apos;),
-message = new Buffer(&quot;A message to log.&quot;);
-client = dgram.createSocket(&quot;unix_dgram&quot;);
-client.send(message, 0, message.length, &quot;/var/run/syslog&quot;,
-function (err, bytes) {
-if (err) {
-throw err;
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> dgram = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;dgram&apos;</span>),
+message = <span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">&quot;A message to log.&quot;</span>);
+client = dgram.createSocket(<span class="hljs-string">&quot;unix_dgram&quot;</span>);
+client.send(message, <span class="hljs-number">0</span>, message.length, <span class="hljs-string">&quot;/var/run/syslog&quot;</span>,
+<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, bytes</span>) </span>{
+<span class="hljs-keyword">if</span> (err) {
+<span class="hljs-keyword">throw</span> err;
 }
-console.log(&quot;Wrote &quot; + bytes + &quot; bytes to socket.&quot;);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Wrote &quot;</span> + bytes + <span class="hljs-string">&quot; bytes to socket.&quot;</span>);
 });
-</code></pre><p>&#x4ECE;MESSAGE &#x4E2D;&#x504F;&#x79FB;&#x4E3A;0&#x7684;&#x5730;&#x65B9;&#x5F00;&#x59CB;&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;MESSAGE.LENGTH &#x7684;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x901A;&#x8FC7;/var/run/syslog &#x53D1;&#x9001;&#x7CFB;&#x7EDF;&#x8C03;
+</code></pre>
+<p>&#x4ECE;MESSAGE &#x4E2D;&#x504F;&#x79FB;&#x4E3A;0&#x7684;&#x5730;&#x65B9;&#x5F00;&#x59CB;&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;MESSAGE.LENGTH &#x7684;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x901A;&#x8FC7;/var/run/syslog &#x53D1;&#x9001;&#x7CFB;&#x7EDF;&#x8C03;
 &#x7528;&#x53D1;&#x9001;&#x540E;&#xFF0C;&#x5C06;&#x8C03;&#x7528;CALLBACK&#xFF0C;&#x5982;&#x679C;&#x6709;&#x9519;&#x8BEF;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x5426;&#x5219;console.log &#x5B9E;&#x9645;&#x53D1;&#x9001;&#x4E86;&#x591A;&#x5C11;&#x4E2A;&#x5B57;&#x8282;&#x3002;</p>
 <p><strong>dgram.send(buf, offset, length, port, address, [callback])</strong></p>
 <p>&#x5BF9;&#x4E8E;UDPSOCKETS &#x6765;&#x8BF4;&#xFF0C;&#x76EE;&#x6807;&#x7AEF;&#x53E3;&#x548C;IP &#x5730;&#x5740;&#x662F;&#x5FC5;&#x987B;&#x8981;&#x6307;&#x5B9A;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x6765;&#x6307;&#x5B9A;&#x5730;&#x5740;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;
@@ -634,60 +637,64 @@ console.log(&quot;Wrote &quot; + bytes + &quot; bytes to socket.&quot;);
 DNS &#x641C;&#x7D22;&#x5C06;&#x4F1A;&#x4F7F;SEND &#x52A8;&#x4F5C;&#x6700;&#x5C11;&#x5EF6;&#x8FDF;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x7247;&#x53D1;&#x751F;&#xFF0C; &#xFF0C;&#x552F;&#x4E00;&#x80FD;&#x786E;&#x5B9A;&#x5DF2;&#x7ECF;SEND &#x5F97;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;
 CALLBACK</p>
 <p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x53D1;&#x9001;UDP &#x6570;&#x636E;&#x5305;&#x5230;&#x672C;&#x673A;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7AEF;&#x53E3;&#x7684;&#x4F8B;&#x5B50;</p>
-<pre><code>var dgram = require(&apos;dgram&apos;),
-message = new Buffer(&quot;Some bytes&quot;);
-client = dgram.createSocket(&quot;udp4&quot;);
-client.send(message, 0, message.length, 41234, &quot;localhost&quot;);
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> dgram = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;dgram&apos;</span>),
+message = <span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">&quot;Some bytes&quot;</span>);
+client = dgram.createSocket(<span class="hljs-string">&quot;udp4&quot;</span>);
+client.send(message, <span class="hljs-number">0</span>, message.length, <span class="hljs-number">41234</span>, <span class="hljs-string">&quot;localhost&quot;</span>);
 client.close();
-</code></pre><p><strong>dgram.bind(path)</strong></p>
+</code></pre>
+<p><strong>dgram.bind(path)</strong></p>
 <p>&#x53EA;&#x6709;&#x5728;Unxi DOMAIN DATAGRAM SOCKET &#x4E2D;&#x4F7F;&#x7528;,&#x5F00;&#x59CB;&#x5728;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x8DEF;&#x5F84;&#x4E0A;&#x76D1;&#x542C;&#x4E00;&#x4E2A;SOCKET &#x8FC7;&#x6765;&#x7684;&#x7684;&#x6570;&#x636E;
 &#x62A5;&#x3002;&#x8981;&#x8BB0;&#x5F97;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x4E0D;&#x662F;&#x7528;BIND()&#x65B9;&#x6CD5;&#x800C;&#x76F4;&#x63A5;&#x8C03;&#x7528;SEND()&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x4F7F;&#x7528;BIND()&#x65B9;&#x6CD5;&#x662F;&#x65E0;&#x6CD5;&#x63A5;&#x6536;&#x5230;&#x4EFB;
 &#x4F55;&#x4FE1;&#x606F;&#x7684;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;UNIX DOMAIN &#x6570;&#x636E;&#x5305;&#x670D;&#x52A1;&#x5668;&#x6765;&#x505A;&#x63A5;&#x53D7;&#x4FE1;&#x606F;&#x56DE;&#x663E;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
-<pre><code>var dgram = require(&quot;dgram&quot;);
-var serverPath = &quot;/tmp/dgram_server_sock&quot;;
-var server = dgram.createSocket(&quot;unix_dgram&quot;);
-server.on(&quot;message&quot;, function (msg, rinfo) {
-console.log(&quot;got: &quot; + msg + &quot; from &quot; + rinfo.address);
-server.send(msg, 0, msg.length, rinfo.address);
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> dgram = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;dgram&quot;</span>);
+<span class="hljs-keyword">var</span> serverPath = <span class="hljs-string">&quot;/tmp/dgram_server_sock&quot;</span>;
+<span class="hljs-keyword">var</span> server = dgram.createSocket(<span class="hljs-string">&quot;unix_dgram&quot;</span>);
+server.on(<span class="hljs-string">&quot;message&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">msg, rinfo</span>) </span>{
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;got: &quot;</span> + msg + <span class="hljs-string">&quot; from &quot;</span> + rinfo.address);
+server.send(msg, <span class="hljs-number">0</span>, msg.length, rinfo.address);
 });
-server.on(&quot;listening&quot;, function () {
-console.log(&quot;server listening &quot; + server.address().address);
+server.on(<span class="hljs-string">&quot;listening&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;server listening &quot;</span> + server.address().address);
 })
 server.bind(serverPath);
-</code></pre><p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;UNIX DOMAIN DATAGRAM &#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x4EA4;&#x4E92;&#x7684;&#x4F8B;&#x5B50;</p>
-<pre><code>var dgram = require(&quot;dgram&quot;);
-var serverPath = &quot;/tmp/dgram_server_sock&quot;;
-var clientPath = &quot;/tmp/dgram_client_sock&quot;;
-var message = new Buffer(&quot;A message at &quot; + (new Date()));
-var client = dgram.createSocket(&quot;unix_dgram&quot;);
-client.on(&quot;message&quot;, function (msg, rinfo) {
-console.log(&quot;got: &quot; + msg + &quot; from &quot; + rinfo.address);
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;UNIX DOMAIN DATAGRAM &#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x4EA4;&#x4E92;&#x7684;&#x4F8B;&#x5B50;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> dgram = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;dgram&quot;</span>);
+<span class="hljs-keyword">var</span> serverPath = <span class="hljs-string">&quot;/tmp/dgram_server_sock&quot;</span>;
+<span class="hljs-keyword">var</span> clientPath = <span class="hljs-string">&quot;/tmp/dgram_client_sock&quot;</span>;
+<span class="hljs-keyword">var</span> message = <span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">&quot;A message at &quot;</span> + (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()));
+<span class="hljs-keyword">var</span> client = dgram.createSocket(<span class="hljs-string">&quot;unix_dgram&quot;</span>);
+client.on(<span class="hljs-string">&quot;message&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">msg, rinfo</span>) </span>{
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;got: &quot;</span> + msg + <span class="hljs-string">&quot; from &quot;</span> + rinfo.address);
 });
-client.on(&quot;listening&quot;, function () {
-console.log(&quot;client listening &quot; + client.address().address);
-client.send(message, 0, message.length, serverPath);
+client.on(<span class="hljs-string">&quot;listening&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;client listening &quot;</span> + client.address().address);
+client.send(message, <span class="hljs-number">0</span>, message.length, serverPath);
 });
 client.bind(clientPath);
-</code></pre><p>dgram.bind(port, [address])</p>
+</code></pre>
+<p>dgram.bind(port, [address])</p>
 <p>&#x5BF9;&#x4E8E;UDP SOCKETS&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x5728;&#x6307;&#x5B9A;&#x7AEF;&#x53E3;&#x548C;&#x53EF;&#x9009;&#x5730;&#x5740;&#x4E0A;&#x76D1;&#x542C;&#xFF0C;&#x5982;&#x679C;&#x5730;&#x5740;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x76D1;&#x542C;&#x6240;&#x6709;
 &#x6709;&#x6548;&#x5730;&#x5740;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5728;41234&#x7AEF;&#x53E3;&#x7684;UDP &#x670D;&#x52A1;&#x5668;&#x7684;&#x4F8B;&#x5B50;</p>
-<pre><code>var dgram = require(&quot;dgram&quot;);
-var server = dgram.createSocket(&quot;udp4&quot;);
-var messageToSend = new Buffer(&quot;A message to send&quot;);
-server.on(&quot;message&quot;, function (msg, rinfo) {
-console.log(&quot;server got: &quot; + msg + &quot; from &quot; +
-rinfo.address + &quot;:&quot; + rinfo.port);
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> dgram = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;dgram&quot;</span>);
+<span class="hljs-keyword">var</span> server = dgram.createSocket(<span class="hljs-string">&quot;udp4&quot;</span>);
+<span class="hljs-keyword">var</span> messageToSend = <span class="hljs-keyword">new</span> Buffer(<span class="hljs-string">&quot;A message to send&quot;</span>);
+server.on(<span class="hljs-string">&quot;message&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">msg, rinfo</span>) </span>{
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;server got: &quot;</span> + msg + <span class="hljs-string">&quot; from &quot;</span> +
+rinfo.address + <span class="hljs-string">&quot;:&quot;</span> + rinfo.port);
 });
-server.on(&quot;listening&quot;, function () {
-var address = server.address();
-console.log(&quot;server listening &quot; +
-address.address + &quot;:&quot; + address.port);
+server.on(<span class="hljs-string">&quot;listening&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+<span class="hljs-keyword">var</span> address = server.address();
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;server listening &quot;</span> +
+address.address + <span class="hljs-string">&quot;:&quot;</span> + address.port);
 });
-server.bind(41234);
-// server listening 0.0.0.0:41234
-</code></pre><p><strong>dgram.close()</strong></p>
+server.bind(<span class="hljs-number">41234</span>);
+<span class="hljs-comment">// server listening 0.0.0.0:41234</span>
+</code></pre>
+<p><strong>dgram.close()</strong></p>
 <p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5173;&#x95ED;&#x975E;&#x5EF6;&#x8FDF;&#x7684;SOCKET &#x5E76;&#x4E14;&#x505C;&#x6B62;&#x5728;&#x5176;&#x4E0A;&#x76D1;&#x542C;&#x6570;&#x636E;&#x3002;&#x5373;&#x4F7F;&#x6CA1;&#x6709;&#x8C03;&#x7528;BIND()&#x65B9;&#x6CD5;UDP SOCKET &#x4E5F;&#x4F1A;&#x81EA;&#x52A8;
 &#x76D1;&#x542C;&#x6D88;&#x606F;&#x3002;</p>
 <p><strong>dgram.address()</strong></p>
@@ -746,7 +753,7 @@ ttl &#x7528;&#x6765;&#x8BBE;&#x7F6E;HOPS &#x7684;&#x6570;&#x503C;&#x4ECE;1&#x523
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"dgram 数据报","level":"1.24","depth":1,"next":{"title":"Assert 断言","level":"1.25","depth":1,"path":"docs/assert/README.md","ref":"docs/assert/README.md","articles":[]},"previous":{"title":"DNS 域名解析","level":"1.23","depth":1,"path":"docs/dns/README.md","ref":"docs/dns/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/dgram/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"dgram 数据报","level":"1.24","depth":1,"next":{"title":"Assert 断言","level":"1.25","depth":1,"path":"docs/assert/README.md","ref":"docs/assert/README.md","articles":[]},"previous":{"title":"DNS 域名解析","level":"1.23","depth":1,"path":"docs/dns/README.md","ref":"docs/dns/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/dgram/README.md","mtime":"2019-05-29T04:49:53.594Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T04:52:29.485Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -785,10 +792,6 @@ ttl &#x7528;&#x6765;&#x8BBE;&#x7F6E;HOPS &#x7684;&#x6570;&#x503C;&#x4ECE;1&#x523
     
         
         <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

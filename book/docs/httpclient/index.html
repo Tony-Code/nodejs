@@ -596,27 +596,29 @@
 <p>&#x4F7F;&#x7528;&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x6765;&#x6784;&#x9020;&#x4E00;&#x4E2A;HTTP client&#xFF0C;&#x5176;&#x8FD4;&#x56DE;&#x7684;&#x53E5;&#x67C4;&#x53EF;&#x7528;&#x6765;&#x53D1;&#x51FA;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x8BF7;&#x6C42;&#x3002;&#x6839;&#x636E;&#x8FDE;&#x63A5;&#x7684;&#x670D;
 &#x52A1;&#x5668;&#x4E0D;&#x540C;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7BA1;&#x9053;&#x5904;&#x7406;&#x673A;&#x5236;&#x6765;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x6216;&#x8005;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x91CD;&#x65B0;&#x6784;&#x5EFA;stream&#x3002;&#x5F53;&#x524D;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x5E76;&#x6CA1;
 &#x6709;&#x7528;&#x7BA1;&#x9053;&#x5904;&#x7406;&#x673A;&#x5236;&#x5904;&#x7406;&#x8BF7;&#x6C42;.</p>
-<pre><code>Example of connecting to google.com:
-var http = require(&apos;http&apos;);
-var google = http.createClient(80, &apos;www.google.com&apos;);
-var request = google.request(&apos;GET&apos;, &apos;/&apos;,
-{&apos;host&apos;: &apos;www.google.com&apos;});
+<pre><code class="lang-javascript">Example <span class="hljs-keyword">of</span> connecting to google.com:
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>);
+<span class="hljs-keyword">var</span> google = http.createClient(<span class="hljs-number">80</span>, <span class="hljs-string">&apos;www.google.com&apos;</span>);
+<span class="hljs-keyword">var</span> request = google.request(<span class="hljs-string">&apos;GET&apos;</span>, <span class="hljs-string">&apos;/&apos;</span>,
+{<span class="hljs-string">&apos;host&apos;</span>: <span class="hljs-string">&apos;www.google.com&apos;</span>});
 request.end();
-request.on(&apos;response&apos;, function (response) {
-console.log(&apos;STATUS: &apos; + response.statusCode);
-console.log(&apos;HEADERS: &apos; + JSON.stringify(response.headers));
-response.setEncoding(&apos;utf8&apos;);
-response.on(&apos;data&apos;, function (chunk) {
-console.log(&apos;BODY: &apos; + chunk);
+request.on(<span class="hljs-string">&apos;response&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;STATUS: &apos;</span> + response.statusCode);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;HEADERS: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(response.headers));
+response.setEncoding(<span class="hljs-string">&apos;utf8&apos;</span>);
+response.on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">chunk</span>) </span>{
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;BODY: &apos;</span> + chunk);
 });
 });
-</code></pre><p>&#x5982;&#x4E0B;&#x6D88;&#x606F;&#x5934;&#x5E94;&#x5F53;&#x6CE8;&#x610F;&#xFF1A;</p>
+</code></pre>
+<p>&#x5982;&#x4E0B;&#x6D88;&#x606F;&#x5934;&#x5E94;&#x5F53;&#x6CE8;&#x610F;&#xFF1A;</p>
 <p>Node &#x5E76;&#x4E0D;&#x4F1A;&#x6DFB;&#x52A0;&apos;Host&apos;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x7F51;&#x7AD9;&#x6765;&#x8BF4;&#x901A;&#x5E38;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x3002;</p>
 <p>&#x53D1;&#x9001;&apos;Connection: keep-alive&apos;&#x5C06;&#x544A;&#x77E5;Node &#x548C;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x63A5;&#x5E94;&#x5F53;&#x662F;&#x6301;&#x4E45;&#x8FDE;&#x63A5;&#xFF0C;&#x76F4;&#x5230;&#x4E0B;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x624D;&#x65AD;&#x5F00;&#x3002;
 &#x53D1;&#x9001;&apos;Content-length&apos;&#x6807;&#x8BB0;&#x5C06;&#x7981;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x6D88;&#x606F;&#x4F53;&#x7F16;&#x7801;&#x3002;</p>
 <p><strong>Event: &apos;upgrade&apos;</strong></p>
-<pre><code>function (request, socket, head)
-</code></pre><p>&#x5F53;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;upgrade &#x8BF7;&#x6C42;&#x65F6;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x6D88;&#x606F;&#x6CA1;&#x6709;&#x88AB;&#x76D1;&#x542C;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;upgrade &#x5934;&#x7684;&#x8BDD;&#x4F1A;&#x5BFC;&#x81F4;
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">request, socket, head</span>)
+</span></code></pre>
+<p>&#x5F53;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;upgrade &#x8BF7;&#x6C42;&#x65F6;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x6D88;&#x606F;&#x6CA1;&#x6709;&#x88AB;&#x76D1;&#x542C;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;upgrade &#x5934;&#x7684;&#x8BDD;&#x4F1A;&#x5BFC;&#x81F4;
 &#x8FD9;&#x4E2A;&#x8FDE;&#x63A5;&#x88AB;&#x5173;&#x95ED;&#x3002;</p>
 <p>&#x53EF;&#x4EE5;&#x67E5;&#x770B;http.Server &#x5173;&#x4E8E;upgrade &#x4E8B;&#x4EF6;&#x7684;&#x89E3;&#x91CA;&#x6765;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x5185;&#x5BB9;&#x3002;</p>
 <p><strong>http.createClient(port, host=&apos;localhost&apos;, secure=false, [credentials])</strong></p>
@@ -689,7 +691,7 @@ body &#x5230;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x673A;&#x4F1A;&#xFF09;</p
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"http.Client","level":"1.17","depth":1,"next":{"title":"http.ClientRequest","level":"1.18","depth":1,"path":"docs/httpclientrequest/README.md","ref":"docs/httpclientrequest/README.md","articles":[]},"previous":{"title":"http.ServerResponse","level":"1.16","depth":1,"path":"docs/httpserverresponse/README.md","ref":"docs/httpserverresponse/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/httpclient/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"http.Client","level":"1.17","depth":1,"next":{"title":"http.ClientRequest","level":"1.18","depth":1,"path":"docs/httpclientrequest/README.md","ref":"docs/httpclientrequest/README.md","articles":[]},"previous":{"title":"http.ServerResponse","level":"1.16","depth":1,"path":"docs/httpserverresponse/README.md","ref":"docs/httpserverresponse/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/httpclient/README.md","mtime":"2019-05-29T04:49:53.737Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T04:52:29.485Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -728,10 +730,6 @@ body &#x5230;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x673A;&#x4F1A;&#xFF09;</p
     
         
         <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

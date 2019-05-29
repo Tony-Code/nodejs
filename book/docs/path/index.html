@@ -597,51 +597,58 @@
 <p><strong>path.join([path1], [path2], [...])</strong></p>
 <p>&#x5C06;&#x6240;&#x6709;&#x53C2;&#x6570;&#x8FDE;&#x63A5;&#x5728;&#x4E00;&#x8D77;&#x5E76;&#x89E3;&#x6790;&#x751F;&#x6210;&#x65B0;&#x7684;&#x8DEF;&#x5F84;&#x3002;
 &#x793A;&#x4F8B;&#xFF1A;</p>
-<pre><code>node&gt; require(&apos;path&apos;).join(
-... &apos;/foo&apos;, &apos;bar&apos;, &apos;baz/asdf&apos;, &apos;quux&apos;, &apos;..&apos;)
-&apos;/foo/bar/baz/asdf&apos;
-</code></pre><p><strong>path.normalizeArray(arr)</strong></p>
+<pre><code class="lang-javascript">node&gt; <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>).join(
+... <span class="hljs-string">&apos;/foo&apos;</span>, <span class="hljs-string">&apos;bar&apos;</span>, <span class="hljs-string">&apos;baz/asdf&apos;</span>, <span class="hljs-string">&apos;quux&apos;</span>, <span class="hljs-string">&apos;..&apos;</span>)
+<span class="hljs-string">&apos;/foo/bar/baz/asdf&apos;</span>
+</code></pre>
+<p><strong>path.normalizeArray(arr)</strong></p>
 <p>&#x8F6C;&#x5316;&#x8DEF;&#x5F84;&#x7684;&#x5404;&#x90E8;&#x5206;&#xFF0C;&#x5C06;&apos;..&apos;&#x548C;&apos;.&apos;&#x66FF;&#x6362;&#x4E3A;&#x5B9E;&#x9645;&#x7684;&#x8DEF;&#x5F84;&#x3002;
 &#x793A;&#x4F8B;&#xFF1A;</p>
-<pre><code>path.normalizeArray([,
-&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;, &apos;asdf&apos;, &apos;quux&apos;, &apos;..&apos;])
-// returns
-[ , &apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;, &apos;asdf&apos; ]
-</code></pre><p><strong>path.normalize(p)</strong></p>
+<pre><code class="lang-javascript">path.normalizeArray([,
+<span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-string">&apos;bar&apos;</span>, <span class="hljs-string">&apos;baz&apos;</span>, <span class="hljs-string">&apos;asdf&apos;</span>, <span class="hljs-string">&apos;quux&apos;</span>, <span class="hljs-string">&apos;..&apos;</span>])
+<span class="hljs-comment">// returns</span>
+[ , <span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-string">&apos;bar&apos;</span>, <span class="hljs-string">&apos;baz&apos;</span>, <span class="hljs-string">&apos;asdf&apos;</span> ]
+</code></pre>
+<p><strong>path.normalize(p)</strong></p>
 <p>&#x8F6C;&#x5316;&#x8DEF;&#x5F84;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5C06;&apos;..&apos;&#x548C;&apos;.&apos;&#x66FF;&#x6362;&#x4E3A;&#x5B9E;&#x9645;&#x7684;&#x8DEF;&#x5F84;&#x3002;
 &#x793A;&#x4F8B;&#xFF1A;</p>
-<pre><code>path.normalize(&apos;/foo/bar/baz/asdf/quux/..&apos;)
-// returns
-&apos;/foo/bar/baz/asdf&apos;
-</code></pre><p><strong>path.dirname(p)</strong></p>
+<pre><code class="lang-javascript">path.normalize(<span class="hljs-string">&apos;/foo/bar/baz/asdf/quux/..&apos;</span>)
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;/foo/bar/baz/asdf&apos;</span>
+</code></pre>
+<p><strong>path.dirname(p)</strong></p>
 <p>&#x8FD4;&#x56DE;&#x8DEF;&#x5F84;&#x4E2D;&#x4EE3;&#x8868;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x540C;Unix &#x7684;dirname &#x547D;&#x4EE4;&#x7C7B;&#x4F3C;&#x3002;
 &#x793A;&#x4F8B;&#xFF1A;</p>
-<pre><code>path.dirname(&apos;/foo/bar/baz/asdf/quux&apos;)
-// returns
-&apos;/foo/bar/baz/asdf&apos;
-</code></pre><p><strong>path.basename(p, [ext])</strong></p>
+<pre><code class="lang-javascript">path.dirname(<span class="hljs-string">&apos;/foo/bar/baz/asdf/quux&apos;</span>)
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;/foo/bar/baz/asdf&apos;</span>
+</code></pre>
+<p><strong>path.basename(p, [ext])</strong></p>
 <p>&#x8FD4;&#x56DE;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x540C;Unix &#x547D;&#x4EE4;bashname &#x7C7B;&#x4F3C;&#x3002;
 &#x793A;&#x4F8B;&#x201C;</p>
-<pre><code>path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)
-// returns
-&apos;quux.html&apos;
-path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)
-// returns
-&apos;quux&apos;
-</code></pre><p><strong>path.extname(p)</strong></p>
+<pre><code class="lang-javascript">path.basename(<span class="hljs-string">&apos;/foo/bar/baz/asdf/quux.html&apos;</span>)
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;quux.html&apos;</span>
+path.basename(<span class="hljs-string">&apos;/foo/bar/baz/asdf/quux.html&apos;</span>, <span class="hljs-string">&apos;.html&apos;</span>)
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;quux&apos;</span>
+</code></pre>
+<p><strong>path.extname(p)</strong></p>
 <p>&#x8FD4;&#x56DE;&#x8DEF;&#x5F84;&#x4E2D;&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;&#x540D;&#xFF0C;&#x5373;&#x8DEF;&#x5F84;&#x4E2D;&#x6700;&#x540E;&#x4E00;&#x4E2A;&apos;.&apos;&#x4E4B;&#x540E;&#x7684;&#x90E8;&#x5206;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x4E2D;&#x5E76;&#x4E0D;&#x5305;&#x542B;&apos;.&apos;&#x6216;&#x8BE5;&#x8DEF;&#x5F84;&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&apos;.&apos;
 &#x4E14;&#x8FD9;&#x4E2A;&apos;.&apos;&#x4E3A;&#x8DEF;&#x5F84;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x5219;&#x6B64;&#x547D;&#x4EE4;&#x8FD4;&#x56DE;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
-<pre><code>path.extname(&apos;index.html&apos;)
-// returns
-&apos;.html&apos;
-path.extname(&apos;index&apos;)
-// returns
-</code></pre><p><strong>path.exists(p, [callback])</strong></p>
+<pre><code class="lang-javascript">path.extname(<span class="hljs-string">&apos;index.html&apos;</span>)
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;.html&apos;</span>
+path.extname(<span class="hljs-string">&apos;index&apos;</span>)
+<span class="hljs-comment">// returns</span>
+</code></pre>
+<p><strong>path.exists(p, [callback])</strong></p>
 <p>&#x68C0;&#x6D4B;&#x7ED9;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x662F;&#x5426;&#x5B58;&#x5728;&#x3002;&#x7136;&#x540E;&#x4F20;&#x9012;&#x7ED3;&#x679C;(true &#x6216;false)&#x7ED9;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
-<pre><code>path.exists(&apos;/etc/passwd&apos;, function (exists) {
-sys.debug(exists ? &quot;it&apos;s there&quot; : &quot;no passwd!&quot;);
+<pre><code class="lang-javascript">path.exists(<span class="hljs-string">&apos;/etc/passwd&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">exists</span>) </span>{
+sys.debug(exists ? <span class="hljs-string">&quot;it&apos;s there&quot;</span> : <span class="hljs-string">&quot;no passwd!&quot;</span>);
 });
-</code></pre><footer class="page-footer"><span class="copyright">&#xA9; Tony all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+</code></pre>
+<footer class="page-footer"><span class="copyright">&#xA9; Tony all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
 2019-5-28 15:29:42
 </span></footer></body></html>
                                 
@@ -686,7 +693,7 @@ sys.debug(exists ? &quot;it&apos;s there&quot; : &quot;no passwd!&quot;);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Path模块","level":"1.26","depth":1,"next":{"title":"URL模块","level":"1.27","depth":1,"path":"docs/url/README.md","ref":"docs/url/README.md","articles":[]},"previous":{"title":"Assert 断言","level":"1.25","depth":1,"path":"docs/assert/README.md","ref":"docs/assert/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/path/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Path模块","level":"1.26","depth":1,"next":{"title":"URL模块","level":"1.27","depth":1,"path":"docs/url/README.md","ref":"docs/url/README.md","articles":[]},"previous":{"title":"Assert 断言","level":"1.25","depth":1,"path":"docs/assert/README.md","ref":"docs/assert/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/path/README.md","mtime":"2019-05-29T04:49:53.794Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T04:52:29.485Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -725,10 +732,6 @@ sys.debug(exists ? &quot;it&apos;s there&quot; : &quot;no passwd!&quot;);
     
         
         <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

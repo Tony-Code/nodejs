@@ -4,7 +4,7 @@
 
 
 **Event: 'data'**
-```
+```javascript
 function (chunk) { }```
 
 当接收到信息体中的一部分时候会发出data 事件。
@@ -13,7 +13,7 @@ function (chunk) { }```
 
 
 **Event: 'end'**
-```
+```javascript
 function () { }```
 
 每次完全接收完信息后都会触发一次。没有参数，当这个事件发出后，将不会再触发其他事件。
@@ -29,7 +29,7 @@ request.method 是一个只读字符串。例如'GET','DELETE'
 
 
 代表所请求的URL 字符串.他仅包括实际的HTTP 请求中的URL 地址。如果这个请求是
-```
+```javascript
 GET /status?name=ryan HTTP/1.1\r\n
 Accept: text/plain\r\n
 \r\n```
@@ -45,7 +45,7 @@ Accept: text/plain\r\n
 Example:
 
 
-```
+```javascript
 node> require('url').parse('/status?name=ryan')
 { href: '/status?name=ryan'
 , search: '?name=ryan'
@@ -56,7 +56,7 @@ node> require('url').parse('/status?name=ryan')
 如果你想从查询字符串中提出这些参数，你可以使用require('querystring').parse 方法,或者传一个true 作为第二个
 参数给require('url').parse 方法。
 Example:
-```
+```javascript
 node> require('url').parse('/status?name=ryan', true)
 { href: '/status?name=ryan'
 , search: '?name=ryan'

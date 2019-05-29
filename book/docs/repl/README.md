@@ -7,7 +7,7 @@ node 的“读入、运行、输出循环模式(REPL)”既可以单独执行也
 
 如果直接执行node 而不跟任何参数就会进入REPL 模式。它类似于简化的emacs 行编辑模式。
 
-```
+```javascript
 mjr:~$ node
 Type '.help' for options.
 node> a = [ 1, 2, 3];
@@ -22,7 +22,7 @@ node> a.forEach(function (v) {
 要使用高级行编辑功能，设置环境变量NODE_NO_READLINE=1并执行node。这样REPL 就会使用标准终端
 设置，如此一来你就可以使用rlwarp 来执行高级行编辑。
 示例，你可以在bashrc 文件中添加如下指令：
-```
+```javascript
 alias node="env NODE_NO_READLINE=1 rlwrap node"
 repl.start(prompt='node> ', stream=process.openStdin())```
 
@@ -32,7 +32,7 @@ REPL 执行时将使用prompt 参数的值作为输入提示符，并使用strea
 
 同一个node 进程可以启动多个REPL，每个REPL 将会共享部分全局对象，但是它们都有自己唯一的I/O。
 示例，分别使用标准输出（控制台）、Unix Socket 和TCP Socket 启动REPL：
-```
+```javascript
 var net = require("net"),
 repl = require("repl");
 connections = 0;
@@ -57,7 +57,7 @@ repl.start("node via TCP socket> ", socket);
 
 在REPL 执行时，可以输入Control+D 退出。你也可以输入跨越多行的表达式。
 特殊标量'_'（下划线）保存了上一个表达式执行后的值。
-```
+```javascript
 node> [ "a", "b", "c" ]
 [ 'a', 'b', 'c' ]
 node> _.length
@@ -70,7 +70,7 @@ REPL 提供了访问全局作用域内任何变量的能力，你也可以通过
 暴露该变量。例如：
 
 
-```
+```javascript
 // repl_test.js
 var repl = require("repl"),
 msg = "message";

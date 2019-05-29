@@ -24,7 +24,7 @@ Node 静态编译所有组件成可执行文件。当您编译您的模块时，
 
 exports.hello = 'world';
 创建文件hello.cc：
-```
+```javascript
 #include <v8.h>
 using namespace v8;
 extern "C" void
@@ -36,7 +36,7 @@ target->Set(String::New("hello"), String::New("World"));
 
 此源文件需要编译成hello.node（二进制扩展）。需要创建一个
 python 文件wscript：
-```
+```javascript
 srcdir = '.'
 blddir = 'build'
 VERSION = '0.0.1'

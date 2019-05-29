@@ -1,7 +1,7 @@
 # net.Server TCP服务器模块
 这个类(net.Server)是用来建立TCP 或者UNIX 服务器的。
 下面有一个在8124端口等待连结的echo server 的例子：
-```
+```javascript
 var net = require('net');
 var server = net.createServer(function (stream) {
 stream.setEncoding('utf8');
@@ -19,21 +19,21 @@ stream.end();
 server.listen(8124, 'localhost');```
 
 如果要使用UNIX SOCKET '/tmp/echo.sock'，最后一行需要改成。
-```
+```javascript
 server.listen('/tmp/echo.sock');```
 
 如下是该对象可以触发的事件：
 
 
 **Event: 'connection'**
-```
+```javascript
 function (stream) {}```
 
 当一个新连接建立后触发（发出）这个事件，stream 是net.Stream 类的一个实例。
 
 
 **Event: 'close'**
-```
+```javascript
 function () {}```
 
 当一个SERVER 关闭的时候触发（发出）这个事件。

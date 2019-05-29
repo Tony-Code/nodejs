@@ -11,7 +11,7 @@
 例如：
 
 
-```
+```javascript
 var body = 'hello world';
 response.writeHead(200, {
 'Content-Length': body.length,
@@ -21,7 +21,7 @@ response.writeHead(200, {
 在一次完整信息交互中此方法只能调用一次，并且必须在调用response.end()之前调用。
 
 
-```
+```javascript
 response.write(chunk, encoding='utf8')```
 
 此方法必须在writeHead 方法调用后才可以被调用，他负责发送响应报文中的部分数据。如果要发送一个报文

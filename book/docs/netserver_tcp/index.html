@@ -595,30 +595,34 @@
                                 <html><head></head><body><h1 id="netserver-tcp&#x670D;&#x52A1;&#x5668;&#x6A21;&#x5757;">net.Server TCP&#x670D;&#x52A1;&#x5668;&#x6A21;&#x5757;</h1>
 <p>&#x8FD9;&#x4E2A;&#x7C7B;(net.Server)&#x662F;&#x7528;&#x6765;&#x5EFA;&#x7ACB;TCP &#x6216;&#x8005;UNIX &#x670D;&#x52A1;&#x5668;&#x7684;&#x3002;
 &#x4E0B;&#x9762;&#x6709;&#x4E00;&#x4E2A;&#x5728;8124&#x7AEF;&#x53E3;&#x7B49;&#x5F85;&#x8FDE;&#x7ED3;&#x7684;echo server &#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
-<pre><code>var net = require(&apos;net&apos;);
-var server = net.createServer(function (stream) {
-stream.setEncoding(&apos;utf8&apos;);
-stream.on(&apos;connect&apos;, function () {
-stream.write(&apos;hello\r\n&apos;);
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> net = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;net&apos;</span>);
+<span class="hljs-keyword">var</span> server = net.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">stream</span>) </span>{
+stream.setEncoding(<span class="hljs-string">&apos;utf8&apos;</span>);
+stream.on(<span class="hljs-string">&apos;connect&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+stream.write(<span class="hljs-string">&apos;hello\r\n&apos;</span>);
 });
-stream.on(&apos;data&apos;, function (data) {
+stream.on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
 stream.write(data);
 });
-stream.on(&apos;end&apos;, function () {
-stream.write(&apos;goodbye\r\n&apos;);
+stream.on(<span class="hljs-string">&apos;end&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+stream.write(<span class="hljs-string">&apos;goodbye\r\n&apos;</span>);
 stream.end();
 });
 });
-server.listen(8124, &apos;localhost&apos;);
-</code></pre><p>&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;UNIX SOCKET &apos;/tmp/echo.sock&apos;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x884C;&#x9700;&#x8981;&#x6539;&#x6210;&#x3002;</p>
-<pre><code>server.listen(&apos;/tmp/echo.sock&apos;);
-</code></pre><p>&#x5982;&#x4E0B;&#x662F;&#x8BE5;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x89E6;&#x53D1;&#x7684;&#x4E8B;&#x4EF6;&#xFF1A;</p>
+server.listen(<span class="hljs-number">8124</span>, <span class="hljs-string">&apos;localhost&apos;</span>);
+</code></pre>
+<p>&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;UNIX SOCKET &apos;/tmp/echo.sock&apos;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x884C;&#x9700;&#x8981;&#x6539;&#x6210;&#x3002;</p>
+<pre><code class="lang-javascript">server.listen(<span class="hljs-string">&apos;/tmp/echo.sock&apos;</span>);
+</code></pre>
+<p>&#x5982;&#x4E0B;&#x662F;&#x8BE5;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x89E6;&#x53D1;&#x7684;&#x4E8B;&#x4EF6;&#xFF1A;</p>
 <p><strong>Event: &apos;connection&apos;</strong></p>
-<pre><code>function (stream) {}
-</code></pre><p>&#x5F53;&#x4E00;&#x4E2A;&#x65B0;&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x540E;&#x89E6;&#x53D1;&#xFF08;&#x53D1;&#x51FA;&#xFF09;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;stream &#x662F;net.Stream &#x7C7B;&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">stream</span>) </span>{}
+</code></pre>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x65B0;&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x540E;&#x89E6;&#x53D1;&#xFF08;&#x53D1;&#x51FA;&#xFF09;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;stream &#x662F;net.Stream &#x7C7B;&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</p>
 <p><strong>Event: &apos;close&apos;</strong></p>
-<pre><code>function () {}
-</code></pre><p>&#x5F53;&#x4E00;&#x4E2A;SERVER &#x5173;&#x95ED;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;&#xFF08;&#x53D1;&#x51FA;&#xFF09;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{}
+</code></pre>
+<p>&#x5F53;&#x4E00;&#x4E2A;SERVER &#x5173;&#x95ED;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;&#xFF08;&#x53D1;&#x51FA;&#xFF09;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;</p>
 <p><strong>net.createServer(connectionListener)</strong></p>
 <p>&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;TCP SERVER&#x3002;connectionListener &#x53C2;&#x6570;&#x4F1A;&#x81EA;&#x52A8;&#x8BBE;&#x7F6E;&#x4E3A;&apos;connection&apos;&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x51FD;&#x6570;&#x3002;</p>
 <p><strong>server.listen(port, [host], [callback])</strong></p>
@@ -680,7 +684,7 @@ server.listen(8124, &apos;localhost&apos;);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"net.Server TCP服务器模块","level":"1.20","depth":1,"next":{"title":"net.Stream TCP流模块","level":"1.21","depth":1,"path":"docs/netstream_tcp/README.md","ref":"docs/netstream_tcp/README.md","articles":[]},"previous":{"title":"http.ClientResponse","level":"1.19","depth":1,"path":"docs/httpclientresponse/README.md","ref":"docs/httpclientresponse/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/netserver_tcp/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"net.Server TCP服务器模块","level":"1.20","depth":1,"next":{"title":"net.Stream TCP流模块","level":"1.21","depth":1,"path":"docs/netstream_tcp/README.md","ref":"docs/netstream_tcp/README.md","articles":[]},"previous":{"title":"http.ClientResponse","level":"1.19","depth":1,"path":"docs/httpclientresponse/README.md","ref":"docs/httpclientresponse/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/netserver_tcp/README.md","mtime":"2019-05-29T04:49:53.692Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T04:52:29.485Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -719,10 +723,6 @@ server.listen(8124, &apos;localhost&apos;);
     
         
         <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

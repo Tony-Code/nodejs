@@ -617,7 +617,7 @@
 &#x5236;&#x4F5C;&#x4E00;&#x4E2A;&#x5C0F;&#x578B;&#x6269;&#x5C55;&#x80FD;&#x8FBE;&#x5230;&#x4EE5;&#x4E0B;&#x6548;&#x7528;(C++ &#x9664;&#x5916;)&#xFF1A;</p>
 <p>exports.hello = &apos;world&apos;;
 &#x521B;&#x5EFA;&#x6587;&#x4EF6;hello.cc&#xFF1A;</p>
-<pre><code>#include &lt;v8.h&gt;
+<pre><code class="lang-javascript">#include &lt;v8.h&gt;
 using namespace v8;
 extern &quot;C&quot; void
 init (Handle&lt;Object&gt; target)
@@ -625,21 +625,23 @@ init (Handle&lt;Object&gt; target)
 HandleScope scope;
 target-&gt;Set(String::New(&quot;hello&quot;), String::New(&quot;World&quot;));
 }
-</code></pre><p>&#x6B64;&#x6E90;&#x6587;&#x4EF6;&#x9700;&#x8981;&#x7F16;&#x8BD1;&#x6210;hello.node&#xFF08;&#x4E8C;&#x8FDB;&#x5236;&#x6269;&#x5C55;&#xFF09;&#x3002;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;
+</code></pre>
+<p>&#x6B64;&#x6E90;&#x6587;&#x4EF6;&#x9700;&#x8981;&#x7F16;&#x8BD1;&#x6210;hello.node&#xFF08;&#x4E8C;&#x8FDB;&#x5236;&#x6269;&#x5C55;&#xFF09;&#x3002;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;
 python &#x6587;&#x4EF6;wscript&#xFF1A;</p>
-<pre><code>srcdir = &apos;.&apos;
-blddir = &apos;build&apos;
-VERSION = &apos;0.0.1&apos;
+<pre><code class="lang-javascript">srcdir = <span class="hljs-string">&apos;.&apos;</span>
+blddir = <span class="hljs-string">&apos;build&apos;</span>
+VERSION = <span class="hljs-string">&apos;0.0.1&apos;</span>
 def set_options(opt):
-opt.tool_options(&apos;compiler_cxx&apos;)
+opt.tool_options(<span class="hljs-string">&apos;compiler_cxx&apos;</span>)
 def configure(conf):
-conf.check_tool(&apos;compiler_cxx&apos;)
-conf.check_tool(&apos;node_addon&apos;)
+conf.check_tool(<span class="hljs-string">&apos;compiler_cxx&apos;</span>)
+conf.check_tool(<span class="hljs-string">&apos;node_addon&apos;</span>)
 def build(bld):
-obj = bld.new_task_gen(&apos;cxx&apos;, &apos;shlib&apos;, &apos;node_addon&apos;)
-obj.target = &apos;hello&apos;
-obj.source = &apos;hello.cc&apos;
-</code></pre><p>&#x6267;&#x884C;node-waf configure build &#x5C06;&#x4F1A;&#x521B;&#x5EFA;&#x60A8;&#x7684;&#x6269;&#x5C55;&#x6587;&#x4EF6;&#x81F3;build/default/hello.node&#x3002;
+obj = bld.new_task_gen(<span class="hljs-string">&apos;cxx&apos;</span>, <span class="hljs-string">&apos;shlib&apos;</span>, <span class="hljs-string">&apos;node_addon&apos;</span>)
+obj.target = <span class="hljs-string">&apos;hello&apos;</span>
+obj.source = <span class="hljs-string">&apos;hello.cc&apos;</span>
+</code></pre>
+<p>&#x6267;&#x884C;node-waf configure build &#x5C06;&#x4F1A;&#x521B;&#x5EFA;&#x60A8;&#x7684;&#x6269;&#x5C55;&#x6587;&#x4EF6;&#x81F3;build/default/hello.node&#x3002;
 node-waf &#x662F;<a href="http://code.google.com/p/waf/[WAF]&#xFF0C;&#x57FA;&#x65BC;python" target="_blank">http://code.google.com/p/waf/[WAF]&#xFF0C;&#x57FA;&#x65BC;python</a> &#x7684;&#x7F16;&#x8BD1;&#x7CFB;&#x7EDF;&#x3002;node-waf &#x4E3A;&#x4F7F;&#x7528;&#x8005;&#x63D0;&#x4F9B;&#x8F7B;&#x6613;&#x3002;
 &#x6240;&#x6709;Node &#x6269;&#x5C55;&#x5FC5;&#x987B;&#x8F93;&#x51FA;&#x4E00;&#x51FD;&#x6570;init &#xFF0C;&#x5E76;&#x5305;&#x542B;&#x6B64;&#x58F0;&#x660E;&#xFF1A;
 extern &apos;C&apos; void init (Handle<object> target)<p></p>
@@ -689,7 +691,7 @@ extern &apos;C&apos; void init (Handle<object> target)<p></p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Addons 扩展","level":"1.31","depth":1,"next":{"title":"Appendix - Third Party Modules 附录：第三方模块","level":"1.32","depth":1,"path":"docs/appendix_-_third_party_modules/README.md","ref":"docs/appendix_-_third_party_modules/README.md","articles":[]},"previous":{"title":"Modules 模块","level":"1.30","depth":1,"path":"docs/modules/README.md","ref":"docs/modules/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/addons/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Addons 扩展","level":"1.31","depth":1,"next":{"title":"Appendix - Third Party Modules 附录：第三方模块","level":"1.32","depth":1,"path":"docs/appendix_-_third_party_modules/README.md","ref":"docs/appendix_-_third_party_modules/README.md","articles":[]},"previous":{"title":"Modules 模块","level":"1.30","depth":1,"path":"docs/modules/README.md","ref":"docs/modules/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/addons/README.md","mtime":"2019-05-29T04:44:17.907Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T04:52:29.485Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -728,10 +730,6 @@ extern &apos;C&apos; void init (Handle<object> target)<p></p>
     
         
         <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

@@ -597,34 +597,38 @@
 <p><strong>querystring.stringify(obj, sep=&apos;&amp;&apos;, eq=&apos;=&apos;, munge=true)</strong></p>
 <p>&#x5E8F;&#x5217;&#x5316;&#x5BF9;&#x8C61;&#x81F3;&#x67E5;&#x8BE2;&#x5B57;&#x4E32;&#x3002;&#x9009;&#x62E9;&#x6027;&#x5730;&#x8986;&#x5199;&#x9ED8;&#x8BA4;&#x5206;&#x5272;&#x7B26;&#x548C;&#x589E;&#x8865;&#x5B57;&#x7B26;(assignment characters)&#x3002;
 &#x4F8B;&#x5B50;&#xFF1A;</p>
-<pre><code>querystring.stringify({foo: &apos;bar&apos;})
-// returns
-&apos;foo=bar&apos;
-querystring.stringify({foo: &apos;bar&apos;, baz: &apos;bob&apos;}, &apos;;&apos;, &apos;:&apos;)
-// returns
-&apos;foo:bar;baz:bob&apos;
-</code></pre><p>&#x6B64;&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x7531;&#x9635;&#x5217;&#x548C;&#x5BF9;&#x8C61;(obj)&#x6392;&#x5217;&#x6210;PHP/Rails &#x98CE;&#x683C;&#x7684;&#x67E5;&#x8BE2;&#x5B57;&#x4E32;&#xFF0C;&#x4F8B;&#x5B50;&#xFF1A;</p>
-<pre><code>querystring.stringify({foo: [&apos;bar&apos;, &apos;baz&apos;, &apos;boz&apos;]})
-// returns
-&apos;foo%5B%5D=bar&amp;foo%5B%5D=baz&amp;foo%5B%5D=boz&apos;
-querystring.stringify({foo: {bar: &apos;baz&apos;}})
-// returns
-&apos;foo%5Bbar%5D=baz&apos;
-</code></pre><p>&#x82E5;&#x5E0C;&#x671B;&#x505C;&#x7528;&#x5B57;&#x5143;&#x89E3;&#x6790;(&#x4F8B;&#x5982;&#x5F53;&#x751F;&#x6210;&#x53C2;&#x6570;&#x4E88;Java servlet &#x65F6;)&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;munge(&#x5B57;&#x5143;&#x89E3;&#x6790;) &#x53C2;&#x6570;&#x6210;false(&#x5047;&#x503C;)&#xFF0C;&#x4F8B;
+<pre><code class="lang-javascript">querystring.stringify({foo: <span class="hljs-string">&apos;bar&apos;</span>})
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;foo=bar&apos;</span>
+querystring.stringify({foo: <span class="hljs-string">&apos;bar&apos;</span>, baz: <span class="hljs-string">&apos;bob&apos;</span>}, <span class="hljs-string">&apos;;&apos;</span>, <span class="hljs-string">&apos;:&apos;</span>)
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;foo:bar;baz:bob&apos;</span>
+</code></pre>
+<p>&#x6B64;&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x7531;&#x9635;&#x5217;&#x548C;&#x5BF9;&#x8C61;(obj)&#x6392;&#x5217;&#x6210;PHP/Rails &#x98CE;&#x683C;&#x7684;&#x67E5;&#x8BE2;&#x5B57;&#x4E32;&#xFF0C;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-javascript">querystring.stringify({foo: [<span class="hljs-string">&apos;bar&apos;</span>, <span class="hljs-string">&apos;baz&apos;</span>, <span class="hljs-string">&apos;boz&apos;</span>]})
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;foo%5B%5D=bar&amp;foo%5B%5D=baz&amp;foo%5B%5D=boz&apos;</span>
+querystring.stringify({foo: {bar: <span class="hljs-string">&apos;baz&apos;</span>}})
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;foo%5Bbar%5D=baz&apos;</span>
+</code></pre>
+<p>&#x82E5;&#x5E0C;&#x671B;&#x505C;&#x7528;&#x5B57;&#x5143;&#x89E3;&#x6790;(&#x4F8B;&#x5982;&#x5F53;&#x751F;&#x6210;&#x53C2;&#x6570;&#x4E88;Java servlet &#x65F6;)&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;munge(&#x5B57;&#x5143;&#x89E3;&#x6790;) &#x53C2;&#x6570;&#x6210;false(&#x5047;&#x503C;)&#xFF0C;&#x4F8B;
 &#x5B50;&#xFF1A;</p>
-<pre><code>querystring.stringify({foo: [&apos;bar&apos;, &apos;baz&apos;, &apos;boz&apos;]}, &apos;&amp;&apos;, &apos;=&apos;, false)
-// returns
-&apos;foo=bar&amp;foo=baz&amp;foo=boz&apos;
-</code></pre><p>&#x6CE8;&#x610F;&#x5F53;munge(&#x5B57;&#x5143;&#x89E3;&#x6790;) &#x4E3A;false &#x65F6;&#xFF0C;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x4ECD;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x3002;</p>
+<pre><code class="lang-javascript">querystring.stringify({foo: [<span class="hljs-string">&apos;bar&apos;</span>, <span class="hljs-string">&apos;baz&apos;</span>, <span class="hljs-string">&apos;boz&apos;</span>]}, <span class="hljs-string">&apos;&amp;&apos;</span>, <span class="hljs-string">&apos;=&apos;</span>, <span class="hljs-literal">false</span>)
+<span class="hljs-comment">// returns</span>
+<span class="hljs-string">&apos;foo=bar&amp;foo=baz&amp;foo=boz&apos;</span>
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x5F53;munge(&#x5B57;&#x5143;&#x89E3;&#x6790;) &#x4E3A;false &#x65F6;&#xFF0C;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x4ECD;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x3002;</p>
 <p><strong>querystring.parse(str, sep=&apos;&amp;&apos;, eq=&apos;=&apos;)</strong></p>
 <p>&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x67E5;&#x8BE2;&#x5B57;&#x4E32;&#x81F3;&#x5BF9;&#x8C61;&#x3002;&#x9009;&#x62E9;&#x6027;&#x5730;&#x8986;&#x5199;&#x9ED8;&#x8BA4;&#x5206;&#x5272;&#x7B26;&#x548C;&#x589E;&#x8865;&#x5B57;&#x7B26;
 (assignment characters)&#x3002;</p>
-<pre><code>querystring.parse(&apos;a=b&amp;b=c&apos;)
-// returns
-{ &apos;a&apos;: &apos;b&apos;
-, &apos;b&apos;: &apos;c&apos;
+<pre><code class="lang-javascript">querystring.parse(<span class="hljs-string">&apos;a=b&amp;b=c&apos;</span>)
+<span class="hljs-comment">// returns</span>
+{ <span class="hljs-string">&apos;a&apos;</span>: <span class="hljs-string">&apos;b&apos;</span>
+, <span class="hljs-string">&apos;b&apos;</span>: <span class="hljs-string">&apos;c&apos;</span>
 }
-</code></pre><p>&#x8FD9;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x5DF2;&#x89E3;&#x6790;&#x548C;&#x672A;&#x89E3;&#x6790;&#x7684;&#x67E5;&#x8BE2;&#x5B57;&#x4E32;&#x3002;</p>
+</code></pre>
+<p>&#x8FD9;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x5DF2;&#x89E3;&#x6790;&#x548C;&#x672A;&#x89E3;&#x6790;&#x7684;&#x67E5;&#x8BE2;&#x5B57;&#x4E32;&#x3002;</p>
 <p><strong>querystring.escape</strong></p>
 <p>querystring.stringify &#x4E2D;&#x6240;&#x4F7F;&#x7528;&#x7684;escape &#x65B9;&#x6CD5;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x8986;&#x5199;&#x5B83;&#x3002;</p>
 <p><strong>querystring.unescape</strong></p>
@@ -674,7 +678,7 @@ querystring.stringify({foo: {bar: &apos;baz&apos;}})
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Query String 查询字串","level":"1.28","depth":1,"next":{"title":"REPL 交互执行","level":"1.29","depth":1,"path":"docs/repl/README.md","ref":"docs/repl/README.md","articles":[]},"previous":{"title":"URL模块","level":"1.27","depth":1,"path":"docs/url/README.md","ref":"docs/url/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/query_string/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Query String 查询字串","level":"1.28","depth":1,"next":{"title":"REPL 交互执行","level":"1.29","depth":1,"path":"docs/repl/README.md","ref":"docs/repl/README.md","articles":[]},"previous":{"title":"URL模块","level":"1.27","depth":1,"path":"docs/url/README.md","ref":"docs/url/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/query_string/README.md","mtime":"2019-05-29T04:49:53.627Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T04:52:29.485Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -713,10 +717,6 @@ querystring.stringify({foo: {bar: &apos;baz&apos;}})
     
         
         <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

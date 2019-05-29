@@ -9,7 +9,7 @@
 示例：
 
 
-```
+```javascript
 node> require('path').join(
 ... '/foo', 'bar', 'baz/asdf', 'quux', '..')
 '/foo/bar/baz/asdf'```
@@ -21,7 +21,7 @@ node> require('path').join(
 示例：
 
 
-```
+```javascript
 path.normalizeArray([,
 'foo', 'bar', 'baz', 'asdf', 'quux', '..'])
 // returns
@@ -33,7 +33,7 @@ path.normalizeArray([,
 示例：
 
 
-```
+```javascript
 path.normalize('/foo/bar/baz/asdf/quux/..')
 // returns
 '/foo/bar/baz/asdf'```
@@ -43,7 +43,7 @@ path.normalize('/foo/bar/baz/asdf/quux/..')
 
 返回路径中代表文件夹的部分，同Unix 的dirname 命令类似。
 示例：
-```
+```javascript
 path.dirname('/foo/bar/baz/asdf/quux')
 // returns
 '/foo/bar/baz/asdf'```
@@ -53,7 +53,7 @@ path.dirname('/foo/bar/baz/asdf/quux')
 
 返回路径中的最后一部分。同Unix 命令bashname 类似。
 示例“
-```
+```javascript
 path.basename('/foo/bar/baz/asdf/quux.html')
 // returns
 'quux.html'
@@ -68,7 +68,7 @@ path.basename('/foo/bar/baz/asdf/quux.html', '.html')
 且这个'.'为路径的第一个字符，则此命令返回空字符串。如下所示：
 
 
-```
+```javascript
 path.extname('index.html')
 // returns
 '.html'
@@ -81,7 +81,7 @@ path.extname('index')
 检测给定的文件路径是否存在。然后传递结果(true 或false)给回调函数。
 
 
-```
+```javascript
 path.exists('/etc/passwd', function (exists) {
 sys.debug(exists ? "it's there" : "no passwd!");
 });```

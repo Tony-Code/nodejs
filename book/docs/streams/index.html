@@ -599,22 +599,27 @@
 <h2 id="readable-stream-&#x53EA;&#x8BFB;&#x6D41;">Readable Stream &#x53EA;&#x8BFB;&#x6D41;</h2>
 <p>&#x4E00;&#x4E2A;&#x53EA;&#x8BFB;&#x6D41;&#x6709;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;&#x3001;&#x6210;&#x5458;&#x3001;&#x548C;&#x4E8B;&#x4EF6;&#x3002;</p>
 <p>Event: &apos;data&apos;</p>
-<pre><code>function (data) { }
-</code></pre><p>&apos;data&apos;&#x4E8B;&#x4EF6;&#x7684;&#x53C2;&#x6570;&#x662F;Buffer&#xFF08;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x8C03;&#x7528;&#x8FC7;setEncoding()&#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{ }
+</code></pre>
+<p>&apos;data&apos;&#x4E8B;&#x4EF6;&#x7684;&#x53C2;&#x6570;&#x662F;Buffer&#xFF08;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x8C03;&#x7528;&#x8FC7;setEncoding()&#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
 <p><strong>Event: &apos;end&apos;</strong></p>
-<pre><code>function () { }
-</code></pre><p>&#x6B64;&#x4E8B;&#x4EF6;&#x5728;&#x6D41;&#x9047;&#x5230;EOF(&#x5728;TCP &#x4E2D;&#x4E3A;FIN)&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x6D41;&#x4E0D;&#x4F1A;&#x518D;&#x6709;&#x6570;&#x636E;&#xFF08;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x89E6;&#x53D1;&apos;data&apos;&#x4E8B;&#x4EF6;&#xFF09;&#x3002;&#x5982;&#x679C;&#x8BE5;&#x6D41;
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ }
+</code></pre>
+<p>&#x6B64;&#x4E8B;&#x4EF6;&#x5728;&#x6D41;&#x9047;&#x5230;EOF(&#x5728;TCP &#x4E2D;&#x4E3A;FIN)&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x6D41;&#x4E0D;&#x4F1A;&#x518D;&#x6709;&#x6570;&#x636E;&#xFF08;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x89E6;&#x53D1;&apos;data&apos;&#x4E8B;&#x4EF6;&#xFF09;&#x3002;&#x5982;&#x679C;&#x8BE5;&#x6D41;
 &#x4E5F;&#x662F;&#x53EF;&#x5199;&#x6D41;&#xFF0C;&#x5219;&#x5B83;&#x8FD8;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x5199;&#x5165;&#x3002;</p>
 <p><strong>Event: &apos;error&apos;</strong></p>
-<pre><code>function (exception) { }
-</code></pre><p>&#x5728;&#x6536;&#x53D6;&#x6570;&#x636E;&#x51FA;&#x9519;&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">exception</span>) </span>{ }
+</code></pre>
+<p>&#x5728;&#x6536;&#x53D6;&#x6570;&#x636E;&#x51FA;&#x9519;&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
 <p><strong>Event: &apos;close&apos;</strong></p>
-<pre><code>function () { }
-</code></pre><p>&#x5185;&#x90E8;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x88AB;&#x5173;&#x95ED;&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x6D41;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4E00;&#x4E2A;&#x8FDB;&#x5165;&#x7684;(incoming)HTTP &#x8BF7;
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ }
+</code></pre>
+<p>&#x5185;&#x90E8;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x88AB;&#x5173;&#x95ED;&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x6D41;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4E00;&#x4E2A;&#x8FDB;&#x5165;&#x7684;(incoming)HTTP &#x8BF7;
 &#x6C42;&#x5C06;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&apos;close&apos;&#x4E8B;&#x4EF6;&#xFF09;&#x3002;</p>
 <p><strong>Event: &apos;fd&apos;</strong></p>
-<pre><code>function (fd) { }
-</code></pre><p>&#x5F53;&#x6570;&#x636E;&#x6D41;&#x63A5;&#x6536;&#x5230;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x4FE1;&#x606F;&#x65F6;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#xFF08;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x6D41;&#x5305;&#x542B;&#x4E24;&#x90E8;&#x5206;&#x4FE1;&#x606F;&#xFF1A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x4FE1;&#x606F;&#x548C;&#x6587;&#x4EF6;&#x7684;&#x6570;
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">fd</span>) </span>{ }
+</code></pre>
+<p>&#x5F53;&#x6570;&#x636E;&#x6D41;&#x63A5;&#x6536;&#x5230;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x4FE1;&#x606F;&#x65F6;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#xFF08;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x6D41;&#x5305;&#x542B;&#x4E24;&#x90E8;&#x5206;&#x4FE1;&#x606F;&#xFF1A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x4FE1;&#x606F;&#x548C;&#x6587;&#x4EF6;&#x7684;&#x6570;
 &#x636E;&#x4FE1;&#x606F;&#xFF09;&#x3002;&#x672C;&#x4E8B;&#x4EF6;&#x53EA;&#x652F;&#x6301;Unix &#x6570;&#x636E;&#x6D41;&#xFF0C;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x6D41;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#x3002;</p>
 <p><strong>stream.readable</strong></p>
 <p>&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;true&#x3002;&#x5F53;&#x9047;&#x5230;&#x9519;&#x8BEF;&#x6216;&#x6D41;&#x8BFB;&#x5230;&#x7ED3;&#x5C3E;&#x6216;&#x8005;&#x8C03;&#x7528;destory()&#x51FD;&#x6570;&#x540E;&#xFF0C;&#x8BE5;&#x503C;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;false&#x3002;</p>
@@ -629,14 +634,17 @@
 <h2 id="writable-stream-&#x53EF;&#x5199;&#x6D41;">Writable Stream &#x53EF;&#x5199;&#x6D41;</h2>
 <p>&#x4E00;&#x4E2A;&#x53EF;&#x5199;&#x6D41;&#x5177;&#x5907;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x3001;&#x6210;&#x5458;&#x3001;&#x548C;&#x4E8B;&#x4EF6;&#x3002;</p>
 <p><strong>Event: &apos;drain&apos;</strong></p>
-<pre><code>function () { }
-</code></pre><p>&#x5728;&#x4E00;&#x4E2A;wrire() &#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x5E76;&#x8FD4;&#x56DE;false &#x540E;&#x89E6;&#x53D1;&#xFF0C;&#x8868;&#x660E;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x7684;&#x518D;&#x6B21;&#x5199;&#x5165;&#x8BE5;stream&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ }
+</code></pre>
+<p>&#x5728;&#x4E00;&#x4E2A;wrire() &#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x5E76;&#x8FD4;&#x56DE;false &#x540E;&#x89E6;&#x53D1;&#xFF0C;&#x8868;&#x660E;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x7684;&#x518D;&#x6B21;&#x5199;&#x5165;&#x8BE5;stream&#x3002;</p>
 <p><strong>Event: &apos;error&apos;</strong></p>
-<pre><code>function (exception) { }
-</code></pre><p>&#x5728;&#x5F02;&#x5E38;&#x53D1;&#x751F;&#x8D64;&#x9519;&#x8BEF;&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">exception</span>) </span>{ }
+</code></pre>
+<p>&#x5728;&#x5F02;&#x5E38;&#x53D1;&#x751F;&#x8D64;&#x9519;&#x8BEF;&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
 <p><strong>Event: &apos;close&apos;</strong></p>
-<pre><code>function () { }
-</code></pre><p>&#x5F53;&#x5E95;&#x5C42;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x5DF2;&#x7EC8;&#x6B62;&#x65F6;&#x53D1;&#x51FA;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ }
+</code></pre>
+<p>&#x5F53;&#x5E95;&#x5C42;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x5DF2;&#x7EC8;&#x6B62;&#x65F6;&#x53D1;&#x51FA;&#x3002;</p>
 <p><strong>stream.writeable</strong></p>
 <p>&#x4E00;&#x4E2A;boolean &#x503C;&#xFF0C;&#x7F3A;&#x7701;&#x4E3A;true &#xFF0C;&#x4F46;&#x662F;&#x5728;&#x4E00;&#x4E2A;&apos;error&apos;&#x4EA7;&#x751F;&#x6216;&#x662F;end() / destroy() &#x88AB;&#x8C03;&#x7528;&#x540E;&#xFF0C;&#x4F1A;&#x53D8;&#x4E3A;false &#x3002;</p>
 <p><strong>stream.write(string, encoding=&apos;utf8&apos;, [fd])</strong></p>
@@ -700,7 +708,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Streams 流","level":"1.6","depth":1,"next":{"title":"Global Objects 全局对象","level":"1.7","depth":1,"path":"docs/global_objects/README.md","ref":"docs/global_objects/README.md","articles":[]},"previous":{"title":"EventEmitter事件触发器","level":"1.5","depth":1,"path":"docs/eventemitter/README.md","ref":"docs/eventemitter/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/streams/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Streams 流","level":"1.6","depth":1,"next":{"title":"Global Objects 全局对象","level":"1.7","depth":1,"path":"docs/global_objects/README.md","ref":"docs/global_objects/README.md","articles":[]},"previous":{"title":"EventEmitter事件触发器","level":"1.5","depth":1,"path":"docs/eventemitter/README.md","ref":"docs/eventemitter/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/streams/README.md","mtime":"2019-05-29T04:49:53.714Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T04:52:29.485Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -739,10 +747,6 @@
     
         
         <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

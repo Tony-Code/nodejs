@@ -14,7 +14,7 @@ information and the number of bytes in the datagram.
 
 
 **Event: 'listening'**
-```
+```javascript
 function () { }```
 
 当一个SOCKET 开始监听数据报的时候触发,当UDP SOCKET 建立后就会触发这个事件。而UNIX DOMAIN
@@ -23,7 +23,7 @@ SOCKET 直到在SOCKET 上调用了bind()方法才会触发这个消息.
 
 **Event: 'close'**
 
-```
+```javascript
 function () { }```
 
 当一个SOCKET 使用close()方法关闭时触发此事件.在此事件之后此SOCKET 不会有任何消息事件被触发.
@@ -47,7 +47,7 @@ callback 作为一个可选项，可作为message 事件的监听器被加入。
 下面是一个通过unix domain socket /var/run/syslog 发送消息到syslogd 的例子：
 
 
-```
+```javascript
 var dgram = require('dgram'),
 message = new Buffer("A message to log.");
 client = dgram.createSocket("unix_dgram");
@@ -74,7 +74,7 @@ CALLBACK
 下面是一个发送UDP 数据包到本机一个随机端口的例子
 
 
-```
+```javascript
 var dgram = require('dgram'),
 message = new Buffer("Some bytes");
 client = dgram.createSocket("udp4");
@@ -92,7 +92,7 @@ client.close();```
 下面是一个使用UNIX DOMAIN 数据包服务器来做接受信息回显的例子：
 
 
-```
+```javascript
 var dgram = require("dgram");
 var serverPath = "/tmp/dgram_server_sock";
 var server = dgram.createSocket("unix_dgram");
@@ -107,7 +107,7 @@ server.bind(serverPath);```
 
 下面是一个UNIX DOMAIN DATAGRAM 客户端与服务器交互的例子
 
-```
+```javascript
 var dgram = require("dgram");
 var serverPath = "/tmp/dgram_server_sock";
 var clientPath = "/tmp/dgram_client_sock";
@@ -130,7 +130,7 @@ dgram.bind(port, [address])
 
 
 下面是一个监听在41234端口的UDP 服务器的例子
-```
+```javascript
 var dgram = require("dgram");
 var server = dgram.createSocket("udp4");
 var messageToSend = new Buffer("A message to send");

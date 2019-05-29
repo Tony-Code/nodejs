@@ -10,7 +10,7 @@ http.Client 的request()方法建立并返回http.ClientRequest 对象。该对�
 在'response'事件中，可以为response 对象增加监听器，监听'data'事件尤为有用。要记住，'response'事件是在接
 收到回应信息体之前被触发，所以这里不需要担心信息体的第一部分不能被捕获。只要在处理'response'事件过
 程中增加'data'事件监听器，信息体是肯定可以被捕获的。
-```
+```javascript
 // Good
 request.on('response', function (response) {
 response.on('data', function (chunk) {
@@ -32,7 +32,7 @@ console.log('BODY: ' + chunk);
 
 
 **Event 'response'**
-```
+```javascript
 function (response) { }```
 
 在响应被接收后触发。这个事件仅会被发出一次，参数response 是http.ClientResponse 的实例。

@@ -598,19 +598,21 @@ Node &#x540C;&#x65F6;&#x4E5F;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x
 foo.js &#x4F1A;&#x5411;&#x5927;&#x5BB6;&#x6F14;&#x793A;&#x52A0;&#x8F7D;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E0B;&#x7684;circle.js &#x6A21;&#x5757;&#x3002;</p>
 <p>The contents of foo.js:
 foo.js &#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre><code>var circle = require(&apos;./circle&apos;);
-console.log( &apos;The area of a circle of radius 4 is &apos;
-+ circle.area(4));
-</code></pre><p>The contents of circle.js:
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> circle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./circle&apos;</span>);
+<span class="hljs-built_in">console</span>.log( <span class="hljs-string">&apos;The area of a circle of radius 4 is &apos;</span>
++ circle.area(<span class="hljs-number">4</span>));
+</code></pre>
+<p>The contents of circle.js:
 cirle.js &#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre><code>var PI = 3.14;
-exports.area = function (r) {
-return PI * r * r;
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> PI = <span class="hljs-number">3.14</span>;
+exports.area = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">r</span>) </span>{
+<span class="hljs-keyword">return</span> PI * r * r;
 };
-exports.circumference = function (r) {
-return 2 * PI * r;
+exports.circumference = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">r</span>) </span>{
+<span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * PI * r;
 };
-</code></pre><p>&#x6A21;&#x5757;circle.js &#x6709;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;area()&#x548C;circumference()&#x3002;&#x4E3A;&#x4E86;&#x4F7F;&#x5176;&#x5BF9;&#x5916;&#x53EF;&#x89C1;&#xFF0C;&#x5C06;&#x5176;&#x5BFC;&#x51FA;&#x5230;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x5BF9;&#x8C61;exprots&#xFF08;&#x8FD8;
+</code></pre>
+<p>&#x6A21;&#x5757;circle.js &#x6709;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;area()&#x548C;circumference()&#x3002;&#x4E3A;&#x4E86;&#x4F7F;&#x5176;&#x5BF9;&#x5916;&#x53EF;&#x89C1;&#xFF0C;&#x5C06;&#x5176;&#x5BFC;&#x51FA;&#x5230;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x5BF9;&#x8C61;exprots&#xFF08;&#x8FD8;
 &#x53EF;&#x4EE5;&#x7528;this &#x6765;&#x66FF;&#x4EE3;exports)&#x3002;&#x6B64;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x662F;&#x79C1;&#x6709;&#x7684;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;PI &#x4FBF;&#x662F;circle &#x6A21;&#x5757;&#x7684;&#x4F3C;&#x6709;&#x53D8;&#x91CF;&#xFF0C;puts()
 &#x65B9;&#x6CD5;&#x5219;&#x662F;&#x5F15;&#x7528;&#x81EA;&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#x6A21;&#x5757;&apos;sys&apos;&#x3002;&#x6CA1;&#x6709;&apos;./&apos;&#x524D;&#x7F00;&#x7684;&#x6A21;&#x5757;&#x90FD;&#x662F;&#x5199;&#x5185;&#x5EFA;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x8BE6;&#x7EC6;&#x8BB2;&#x89E3;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x3002;</p>
 <p>&#x4F7F;&#x7528;&apos;./&apos;&#x524D;&#x7F00;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x5FC5;&#x987B;&#x548C;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x6587;&#x4EF6;&#x4F4D;&#x4E8E;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#xFF0C;&#x6240;&#x4EE5;&#x5C06;circle.js &#x548C;foo.js &#x653E;&#x5728;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E0B;&#x3002;
@@ -672,7 +674,7 @@ return 2 * PI * r;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Modules 模块","level":"1.30","depth":1,"next":{"title":"Addons 扩展","level":"1.31","depth":1,"path":"docs/addons/README.md","ref":"docs/addons/README.md","articles":[]},"previous":{"title":"REPL 交互执行","level":"1.29","depth":1,"path":"docs/repl/README.md","ref":"docs/repl/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox","livereload"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/modules/README.md","mtime":"2016-11-07T01:32:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T07:48:17.210Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Modules 模块","level":"1.30","depth":1,"next":{"title":"Addons 扩展","level":"1.31","depth":1,"path":"docs/addons/README.md","ref":"docs/addons/README.md","articles":[]},"previous":{"title":"REPL 交互执行","level":"1.29","depth":1,"path":"docs/repl/README.md","ref":"docs/repl/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["splitter","chapter-fold","code","favicon","tbfed-pagefooter","-sharing","sharing-plus","github","github-buttons","lightbox"],"styles":{"website":"/source/css/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy Tony","modify_label":"该文件修订时间：","modify_format":"2019-5-28 15:29:42"},"chapter-fold":{},"github":{"url":"https://github.com/Tony-Code"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/source/images/favicon.ico","bookmark":"/source/images/favicon.ico","appleTouch":"/source/images/favicon.ico","appleTouchMore":{"120x120":"/source/images/favicon.ico","180x180":"/source/images/favicon.ico"}},"lightbox":{"jquery":true},"github-buttons":{"buttons":[{"user":"Tony-Code","repo":"nodejs","type":"star","size":"small","count":true}]},"sharing":{"qq":false,"all":["weibo","qq","qzone","douban"],"douban":false,"facebook":true,"weibo":false,"twitter":true,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"tony","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"NodeJS中文文档","language":"zh-hans","gitbook":"3.2.3","description":"本书适合nodejs入门学者"},"file":{"path":"docs/modules/README.md","mtime":"2019-05-29T04:49:53.575Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-29T04:52:29.485Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -711,10 +713,6 @@ return 2 * PI * r;
     
         
         <script src="../../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

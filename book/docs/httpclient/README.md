@@ -5,7 +5,7 @@
 有用管道处理机制处理请求.
 
 
-```
+```javascript
 Example of connecting to google.com:
 var http = require('http');
 var google = http.createClient(80, 'www.google.com');
@@ -33,7 +33,7 @@ Node 并不会添加'Host'，但是这个属性对于一个网站来说通常是
 
 
 **Event: 'upgrade'**
-```
+```javascript
 function (request, socket, head)```
 
 当服务器响应upgrade 请求时触发此事件，如果这个消息没有被监听，客户端接收到一个upgrade 头的话会导致
